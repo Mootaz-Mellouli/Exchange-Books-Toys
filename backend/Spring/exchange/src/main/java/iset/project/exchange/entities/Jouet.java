@@ -6,16 +6,14 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document("utilisateur")
-public class Utilisateur {
+@Document("jouet")
+public class Jouet {
     @Id
     private String id ;
-    private String nom ;
-    private String prenom ;
     @Indexed(unique = true)
-    private String email ;
-    private String numeroTel;
-    private String cin ;
-    private Adresse adresse ;
-    private String password ;
+    private String titre ;
+    private String description ;
+    private String prix ;
+    private Etat etat_jouet ;
+    private CategorieJouet categorie_jouet ;
 }
