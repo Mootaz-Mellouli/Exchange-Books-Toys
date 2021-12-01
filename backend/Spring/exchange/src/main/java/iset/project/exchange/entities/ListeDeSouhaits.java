@@ -12,6 +12,6 @@ public class ListeDeSouhaits {
    private ListeDeSouhaitsOptions options ;
    private CategorieJouet categorieJouet ;
    private CategorieLivre categorieLivre ;
-   private String Description ;
+   private String description ;
 
 }
