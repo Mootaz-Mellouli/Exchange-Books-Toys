@@ -4,6 +4,7 @@ import iset.project.exchange.entities.Livre;
 import iset.project.exchange.entities.Utilisateur;
 import iset.project.exchange.services.LivreService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class LivreController {
 
+    @Autowired
     private final LivreService livreService ;
 
     @RequestMapping("/")
@@ -27,16 +29,16 @@ public class LivreController {
         return livreService.saveBook(livre) ;
     }
     @RequestMapping("/{id}")
-    public Livre findBookByID(@PathVariable String id)
+    public Livre findBookByID(@PathVariable("id") String id)
     {
         return livreService.getBookByID(id);
     }
-    @DeleteMapping({"/id"})
-    public void deleteBook(@PathVariable String id)
+    @DeleteMapping({"/{id}"})
+    public void deleteBook(@PathVariable("id") String id)
     {
         livreService.deleteBook(id);
     }
-    @PutMapping({"/id"})
+    @PutMapping({"/{id}"})
     public Livre updateBook(@RequestBody Livre livre)
     {
         return livreService.updateBook(livre);

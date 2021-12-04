@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JouetRepository extends MongoRepository<Jouet,String> {
-    //Jouet findToyByID(String id );
+    Jouet findToyById(String id);
 }

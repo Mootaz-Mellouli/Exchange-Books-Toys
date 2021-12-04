@@ -11,24 +11,24 @@ import iset.project.exchange.repository.SouhaitRepository;
 @Service
 public class SouhaitService {
 		@Autowired
-		private SouhaitRepository souhRep;
+		private SouhaitRepository souhaitRepository;
 
 		public List<ListeDeSouhaits> getSouhaits(){
-			return souhRep.findAll();
+			return souhaitRepository.findAll();
 		}
 		
 		public ListeDeSouhaits getSouhait(String id) {
-			return souhRep.findSouhaitById(id);
+			return souhaitRepository.findSouhaitById(id);
 		}
 		public ListeDeSouhaits addSouhait(ListeDeSouhaits s) {
-			return souhRep.save(s);
+			return souhaitRepository.save(s);
 		}
 		public ListeDeSouhaits updateSouhait(ListeDeSouhaits s) {
-			return souhRep.save(s);
+			return souhaitRepository.save(s);
 		}
 		
 		public void deleteSouhait(String id) {
 			ListeDeSouhaits s = getSouhait(id);
-			souhRep.delete(s);
+			souhaitRepository.delete(s);
 		}
 }
