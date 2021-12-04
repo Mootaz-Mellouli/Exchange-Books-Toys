@@ -6,6 +6,7 @@ import iset.project.exchange.repository.JouetRepository;
 import iset.project.exchange.repository.LivreRepository;
 import iset.project.exchange.repository.UtilisateurRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class LivreService {
 
+    @Autowired
     private final LivreRepository livreRepository;
 
 
@@ -38,11 +40,15 @@ public class LivreService {
         {
             throw new IllegalStateException("Book with  ID : "+id+"not found");
         }
-        livreRepository.deleteById(id);
+        else {
+        Livre livre = getBookByID(id);
+        livreRepository.delete(livre);
+        }
     }
 
     public Livre updateBook(Livre livre)
     {
+
         return livreRepository.save(livre);
     }
 }

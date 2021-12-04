@@ -18,7 +18,7 @@ public class AssociationService {
 		return assRep.findAll();
 	}
 	
-	public Association getAssociation(String id) {
+	public Association getAssociationByID(String id) {
 		return assRep.findAssociationById(id);
 	}
 	public Association addAssociation(Association a) {
@@ -29,7 +29,7 @@ public class AssociationService {
 	}
 	
 	public void deleteAssociation(String id) {
-		Association ass = getAssociation(id);
+		Association ass = getAssociationByID(id);
 		assRep.delete(ass);
 	}
 }

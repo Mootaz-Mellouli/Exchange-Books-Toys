@@ -32,7 +32,7 @@ public class AssociationController {
 
 	@GetMapping("/{id}")
 	public Association getAssociationById(@PathVariable("id") String id) {
-		return AssService.getAssociation(id);
+		return AssService.getAssociationByID(id);
 	}
 
 	@DeleteMapping("/{id}")
