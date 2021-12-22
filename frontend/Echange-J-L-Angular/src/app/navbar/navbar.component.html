@@ -40,10 +40,62 @@
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#pricing">STORE</a>
                 </li>
+                      <!-- partial:index.partial.html -->
+                <!-- Button trigger modal -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#login">LOGIN</a>
+                <a
+                type="button"
+                role="button"
+                class="nav-link page-scroll"
+                (click)="openPopup()">LOGIN
+                </a>
                 </li>
             </ul>
+            <div
+                class="modal fadeIn"
+                tabindex="-1"
+                role="dialog"
+                [ngStyle]="{'display':displayStyle}">
+                <div class="modal-dialog" role="document" style='box-shadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"'>
+                    <div class="modal-content">
+                        <div class="modal-header justify-content-center">
+                            <h4 class="modal-title">Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex flex-column text-center">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email1" placeholder="E-mail">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="password1" placeholder="Password">
+                                    </div>
+                                    <button type="button" class="btn btn-block btn-round" style="background-color: rgb(255, 0, 76); color: wheat;">Login</button>
+                                </form>
+                                <div class="text-center text-muted delimiter">or use a social network</div>
+                                    <div class="d-flex justify-content-center social-buttons">
+                                        <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
+                                        <i class="fab fa-twitter"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
+                                        <i class="fab fa-facebook"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Linkedin">
+                                        <i class="fab fa-linkedin"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" style="background-color: rgb(255, 0, 76); color: wheat;" (click)="closePopup()"> Close </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div> <!-- end of container -->
 </nav> <!-- end of navbar -->
+
