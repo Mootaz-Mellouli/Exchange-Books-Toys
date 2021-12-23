@@ -6,9 +6,12 @@ import { FormsModule } from "@angular/forms";
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductsComponent } from './products/products.component';
+import { BookFormComponent } from './book-form/book-form.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: '', component: HomeBodyComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotfoundComponent },
 
 ];

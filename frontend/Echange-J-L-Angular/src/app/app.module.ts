@@ -10,7 +10,9 @@ import { BodyContentComponent } from './body-content/body-content.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductsComponent } from './products/products.component';
 import { CardComponent } from './card/card.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { BookFormComponent } from './book-form/book-form.component';
+import { LoginComponent } from './login/login.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import {HttpClientModule} from '@angular/common/http'
     BodyContentComponent,    
     ProductsComponent,
     CardComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    BookFormComponent,
+    LoginComponent
 
   ],
   imports: [
