@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: '', component: HomeBodyComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'addBook', component: BookFormComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotfoundComponent },
 
