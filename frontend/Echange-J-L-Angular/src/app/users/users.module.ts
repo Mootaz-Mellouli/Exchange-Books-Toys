@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { AddFormComponent } from '../add-form/add-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { AddFormComponent } from '../add-form/add-form.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     UsersRoutingModule
   ]
 })
