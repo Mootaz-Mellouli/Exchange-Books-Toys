@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document("livre")
+@Document
 public class Livre {
     @Id
     private String id ;
@@ -17,5 +17,6 @@ public class Livre {
     private String prix_livre ;
     private Etat etat_livre ;
     private CategorieLivre categorie_livre;
+    private String image_livre;
 
 }

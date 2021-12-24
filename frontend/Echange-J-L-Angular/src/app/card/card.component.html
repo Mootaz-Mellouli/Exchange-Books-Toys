@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <div id="container">
+        <!-- Start	Product details -->
+        <div class="product-details">
+
+            <!-- 	Product Name -->
+            <h1>{{book.titre.toUpperCase()}}</h1>
+            <!-- 		<span class="hint new">New</span> -->
+            <!-- 		<span class="hint free-shipping">Free Shipping</span> -->
+            <!-- 		the Product rating -->
+
+            <!-- The most important information about the product -->
+            <p class="information">" Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut, bring them inside and you'll notice a light scent that some say is reminiscent of apples. "</p>
+            <!-- 		Control -->
+            <div class="control">
+                <button class="btn">
+                    <!-- <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
+                    <span class="buy">Recieve</span>
+                </button>
+            </div>
+        </div>
+        <div class="product-image">
+
+            <img src="https://sc01.alicdn.com/kf/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3/200006212/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3.jpg" alt="Omar Dsoky">
+            <!-- 	product Information-->
+            <div class="info">
+                <h2 style="color:rgb(221, 221, 221)">Description</h2>
+                <ul>
+                    <li><strong>Titre: </strong>{{book.titre}}</li>
+                    <li><strong>Auteur: </strong>{{book.auteur}}</li>
+                    <li><strong>Maison d'edition: </strong>{{book.maison_edition}}</li>
+                    <li><strong>Prix: </strong>{{book.prix_livre}}</li>
+                    <li><strong>Etat: </strong>{{book.etat_livre}}</li>
+                    <li><strong>Categorie: </strong>{{book.categorie_livre}}</li>
+                </ul>
+            </div>
+        </div>
+        <!--  End product image  -->
+    </div>
+</div>

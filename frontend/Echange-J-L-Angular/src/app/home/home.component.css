@@ -9,6 +9,8 @@
   padding-top: 8rem;
   padding-bottom: 4rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .header .text-container {
@@ -32,12 +34,12 @@
 }
 
 .header .btn-solid-lg {
-  margin-right: 0.5rem;
-  margin-bottom: 1.125rem;
-  margin-left: 0.5rem;
   border-color: #f3f7fd;
   background-color: #f3f7fd;
+  padding: 1.375rem 2.625rem 1.375rem 2.625rem;
   color: #5f4dee;
+  width: 10rem;
+  height: 1.7rem;
 }
 
 .header .btn-solid-lg:hover {
@@ -45,7 +47,7 @@
   color: #f3f7fd;
 }
 
-.header .btn-outline-lg {
+.btn-outline-lg {
   border-color: #f3f7fd;
   color: #f3f7fd;
 }
