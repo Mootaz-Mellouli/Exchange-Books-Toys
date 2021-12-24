@@ -1,24 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from "@angular/forms";
-import { HomeBodyComponent } from './home-body/home-body.component';
-import { NotfoundComponent } from './notfound/notfound.component';
-import { ProductsComponent } from './products/products.component';
-import { BookFormComponent } from './book-form/book-form.component';
-import { LoginComponent } from './login/login.component';
-const routes: Routes = [
-  { path: '', component: HomeBodyComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'addBook', component: BookFormComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', component: NotfoundComponent },
+import { HomeComponent } from './home/home.component';
 
-];
+const routes: Routes = [
+  {path:'',component:HomeComponent},
+  { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
+] ;
+
+
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), FormsModule, CommonModule],
+  declarations: [],
+  imports: [RouterModule.forRoot(routes)],
+
   exports: [RouterModule]
+
+
 })
 export class AppRoutingModule { }

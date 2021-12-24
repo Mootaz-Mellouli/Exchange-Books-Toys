@@ -18,7 +18,12 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+<<<<<<< HEAD
     "bootstrap": "^4.6.1",
+=======
+    "bootstrap": "^5.1.3",
+    "jquery": "^3.6.0",
+>>>>>>> 22919b43d5c54a35e6667704e66e145aced0b971
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
