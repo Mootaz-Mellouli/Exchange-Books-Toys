@@ -1,0 +1,144 @@
+<div class="signup-container">
+  <!-----------------Toy Form-->
+  <div class="left-container" *ngIf="ToySelection; else book3">
+    <h1>
+      Donating TOY
+    </h1>
+    <div class="puppy">
+      <img src="assets/toy2.jpg"/>
+    </div>
+  </div>
+  <!------------------Book Form-->
+  <ng-template #book3 >
+
+    <div class="left-container" >
+      <h1>
+        Donating Book
+      </h1>
+      <div class="puppy">
+        <img src="assets/books.jpg"/>
+      </div>
+    </div>
+  </ng-template>
+  <!-------->
+
+  <div class="right-container">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm"  >
+    <header>
+
+      <div class="d-flex justify-content-center">
+      <div class="pets-gender">
+        <label for="pet-gender-female">Book or Toy</label>
+        <div class="radio-container">
+          <input id="Book" name="pet-gender" type="radio" value="Book" (click)="bookSelected()">
+          <label for="Book">Book</label>
+          <input id="Toy" name="pet-gender" type="radio" value="Toy" checked (click)="toySelected()">
+          <label for="Toy">Toy</label>
+        </div>
+      </div>
+    </div>
+                      <!-------------------Toy Form---------->
+      <div class="set" *ngIf="ToySelection; else book" >
+        <div class="pets-name">
+          <label for="pets-name">Name</label>
+          <input id="pets-name" placeholder="Toy's name" type="text" ngModel name="Name">
+        </div>
+        <div class="pets-photo">
+          <button id="pets-upload">
+            <i class="fas fa-camera-retro"></i>
+          </button>
+          <label for="pets-upload">Upload a photo</label>
+        </div>
+      </div>
+                  <!------------ Book Form ----------->
+      <ng-template #book>
+      <div class="set" >
+        <div class="pets-name">
+          <label for="pets-name">Book Title</label>
+          <input id="pets-name" placeholder="Title Book" type="text" ngModel name="Title">
+        </div>
+        <div class="pets-photo">
+          <button id="pets-upload">
+            <i class="fas fa-camera-retro"></i>
+          </button>
+          <label for="pets-upload">Upload a photo</label>
+        </div>
+      </div>
+      <div class="set" >
+        <div class="pets-name">
+          <label for="pets-name">Book Author</label>
+          <input id="pets-name" placeholder="Author Book" type="text" ngModel name="Author">
+        </div>
+        <div class="pets-name">
+          <label for="pets-name">Publishing House</label>
+          <input id="pets-name" placeholder="Book's Publishing house" type="text" ngModel name="Publishing-house">
+        </div>
+
+      </div>
+    </ng-template>
+
+      <!------------------------ Toy Form -------->
+
+      <div class="set" *ngIf="ToySelection; else book2">
+        <div class="pets-breed">
+          <label for="pets-breed">Description</label>
+          <textarea placeholder="Describe your toy " id="Description" ngModel name="Description"></textarea>
+        </div>
+        <div class="pets-birthday"  >
+          <label for="pets-birthday">Category</label>
+          <select  class="form-select"  ngModel name="Category">
+            <option value="" disabled selected>Select your Toy's Category</option>
+            <option value="1">Society</option>
+            <option value="2">Educative</option>
+            <option value="3">Awkening</option>
+            <option value="3">Puzzle</option>
+            <option value="3">Exterior</option>
+            <option value="3">Imitation</option>
+          </select>
+        </div>
+      </div>
+      <!---------------- Book Form ------------------------>
+      <ng-template #book2 >
+      <div class="set">
+        <div class="pets-birthday"  >
+          <label for="pets-birthday">Category</label>
+          <select  class="form-select"  ngModel name="Category">
+            <option value="" disabled selected>Select your Book's Category</option>
+            <option value="1">Academic</option>
+            <option value="2">Novel</option>
+            <option value="3">Scientific</option>
+            <option value="3">Dictionary And Language</option>
+            <option value="3">Art, Music And Cinema</option>
+            <option value="3">History</option>
+          </select>
+        </div>
+      </div>
+    </ng-template>
+      <!------------------------- Toy/Book Form -->
+      <div class="pets-weight">
+        <label for="pet-weight-0-25">Shape</label>
+        <div class="radio-container">
+          <input id="pet-weight-0-25" name="pet-weight" type="radio" value="0-25" ngModel name="Bad">
+          <label for="pet-weight-0-25">Bad</label>
+          <input id="pet-weight-25-50" name="pet-weight" type="radio" value="25-50" ngModel name="Not-bad">
+          <label for="pet-weight-25-50">Not Bad</label>
+          <input id="pet-weight-50-100" name="pet-weight" type="radio" value="50-100" ngModel name="Good">
+          <label for="pet-weight-50-100">Good</label>
+          <input id="pet-weight-100-plus" name="pet-weight" type="radio" value="100+" ngModel name="New">
+          <label for="pet-weight-100-plus">New</label>
+        </div>
+      </div>
+    </header>
+    <footer>
+      <div class="set">
+        <button id="back">Back</button>
+        <button id="next">Next</button>
+      </div>
+
+    </footer>
+  </form>
+
+  </div>
+
+</div>
+
