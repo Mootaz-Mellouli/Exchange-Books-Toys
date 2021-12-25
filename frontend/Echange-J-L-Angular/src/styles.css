@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "./assets/fontawesome-all.css";
-
 body,
 html {
   width: 100%;
@@ -10,6 +9,8 @@ html {
 }
 body {
   background-color: rgb(235, 235, 235);
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 body,
