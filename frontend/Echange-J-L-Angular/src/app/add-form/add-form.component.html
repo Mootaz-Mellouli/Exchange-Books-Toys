@@ -23,7 +23,7 @@
   <!-------->
 
   <div class="right-container">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm"  >
+    <form (ngSubmit)="onSubmit()" #f="ngForm" >
     <header>
 
       <div class="d-flex justify-content-center">
@@ -71,7 +71,7 @@
         </div>
         <div class="pets-name">
           <label for="pets-name">Publishing House</label>
-          <input id="pets-name" placeholder="Book's Publishing house" type="text" ngModel name="Publishing-house">
+          <input id="pets-name" placeholder="Book's Publishing house" type="text" ngModel name="PublishingHouse">
         </div>
 
       </div>
@@ -86,7 +86,7 @@
         </div>
         <div class="pets-birthday"  >
           <label for="pets-birthday">Category</label>
-          <select  class="form-select"  ngModel name="Category">
+          <select  class="form-select"  ngModel name="CategoryToy">
             <option value="" disabled selected>Select your Toy's Category</option>
             <option value="1">Society</option>
             <option value="2">Educative</option>
@@ -102,7 +102,7 @@
       <div class="set">
         <div class="pets-birthday"  >
           <label for="pets-birthday">Category</label>
-          <select  class="form-select"  ngModel name="Category">
+          <select  class="form-select"  ngModel name="CategoryBook">
             <option value="" disabled selected>Select your Book's Category</option>
             <option value="1">Academic</option>
             <option value="2">Novel</option>
@@ -114,25 +114,42 @@
         </div>
       </div>
     </ng-template>
-      <!------------------------- Toy/Book Form -->
-      <div class="pets-weight">
-        <label for="pet-weight-0-25">Shape</label>
+      <!------------------------- Toy Form -->
+      <div class="pets-weight" *ngIf="ToySelection; else book4">
+        <label for="pet-weight-0-25">Shape Of The Toy</label>
         <div class="radio-container">
-          <input id="pet-weight-0-25" name="pet-weight" type="radio" value="0-25" ngModel name="Bad">
+          <input id="pet-weight-0-25" name="ShapeToy" type="radio" value="Bad" ngModel name="Bad">
           <label for="pet-weight-0-25">Bad</label>
-          <input id="pet-weight-25-50" name="pet-weight" type="radio" value="25-50" ngModel name="Not-bad">
+          <input id="pet-weight-25-50" name="ShapeToy" type="radio" value="Not-bad" ngModel name="Not-bad">
           <label for="pet-weight-25-50">Not Bad</label>
-          <input id="pet-weight-50-100" name="pet-weight" type="radio" value="50-100" ngModel name="Good">
+          <input id="pet-weight-50-100" name="ShapeToy" type="radio" value="Good" ngModel name="Good">
           <label for="pet-weight-50-100">Good</label>
-          <input id="pet-weight-100-plus" name="pet-weight" type="radio" value="100+" ngModel name="New">
+          <input id="pet-weight-100-plus" name="ShapeToy" type="radio" value="New" ngModel name="New">
           <label for="pet-weight-100-plus">New</label>
         </div>
       </div>
+      <!---------------------------- Book Form -->
+      <ng-template #book4>
+      <div class="pets-weight">
+        <label for="pet-weight-0-25">Shape Of The Book</label>
+        <div class="radio-container">
+          <input id="pet-weight-0-25" name="ShapeBook" type="radio" value="Bad" ngModel name="Bad">
+          <label for="pet-weight-0-25">Bad</label>
+          <input id="pet-weight-25-50" name="ShapeBook" type="radio" value="Not-bad" ngModel name="Not-bad">
+          <label for="pet-weight-25-50">Not Bad</label>
+          <input id="pet-weight-50-100" name="ShapeBook" type="radio" value="Good" ngModel name="Good">
+          <label for="pet-weight-50-100">Good</label>
+          <input id="pet-weight-100-plus" name="ShapeBook" type="radio" value="New" ngModel name="New">
+          <label for="pet-weight-100-plus">New</label>
+        </div>
+      </div>
+    </ng-template>
+      <!--------------------------------------------------->
     </header>
     <footer>
       <div class="set">
         <button id="back">Back</button>
-        <button id="next">Next</button>
+        <button id="next" type="submit">Submit</button>
       </div>
 
     </footer>

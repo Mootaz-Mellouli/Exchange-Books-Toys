@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-add-form',
@@ -8,16 +9,45 @@ import { NgForm } from '@angular/forms';
 })
 export class AddFormComponent implements OnInit {
 
+  @ViewChild('f', { static: false }) addForm!: NgForm;
   BookSelection = false ;
   ToySelection = true ;
+  book={
+    title : '',
+    author : ' ',
+    publishingHouse: '',
+    category:'',
+    shapeBook:''
+  };
+  toy={
+    name:'',
+    description:'',
+    category:'',
+    shapeToy:''
+  };
+  submitted = false ;
 
-  constructor() { }
+
+  constructor(private userService: UserService) { }
+
 
   ngOnInit(): void {
+    this.userService.post(this.addForm.value).subscribe(
+     res => {console.log(res)}
+    );
   }
 
-  onSubmit(form: NgForm){
-    console.log(form);
+  onSubmit(){
+    this.book.title=this.addForm.value.Title ;
+    this.book.author=this.addForm.value.Author ;
+    this.book.publishingHouse=this.addForm.value.PublishingHouse ;
+    this.book.category=this.addForm.value.CategoryBook ;
+    this.book.shapeBook=this.addForm.value.ShapeBook ;
+    this.toy.name=this.addForm.value.Name;
+    this.toy.description=this.addForm.value.Description ;
+    this.toy.category=this.addForm.value.CategoryToy;
+    this.toy.shapeToy=this.addForm.value.ShapeToy;
+    console.log(this.addForm);
   }
 
   bookSelected(){
@@ -29,4 +59,16 @@ export class AddFormComponent implements OnInit {
     this.ToySelection = true ;
     this.BookSelection = false ;
   }
+
+  // onCreatePost(postData:{Title:String; Author:String;})
+  // {
+  //   this.http
+  //     .post(
+  //       'http://localhost:8080/livre/add',
+  //       postData
+  //     )
+  //     .subscribe(responseData => {
+  //       console.log(responseData);
+  //     });
+  // }
 }
