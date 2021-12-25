@@ -1,5 +1,12 @@
-.products {
-    display: grid;
-    margin: 0rem;
-    grid-template-columns: repeat(2, 1fr);
+@import "../../assets/fontawesome-all.css";
+.section-pagetop {
+  margin: 1.2rem;
+}
+.card {
+  min-height: 100%;
+}
+.card-body .custom-checkbox {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }

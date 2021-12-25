@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import { Livre } from "../models/Livre"
-
+import { Component, OnInit } from '@angular/core';
+import { AssociationService } from '../services/association.service';
 
 @Component({
   selector: 'app-products',
@@ -9,22 +7,16 @@ import { Livre } from "../models/Livre"
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  public BooksList: Livre[] = [];
+  public BooksList: any = [];
   constructor(
-    private httpClient: HttpClient
+    private associationService: AssociationService
   ) { }
     
   ngOnInit(): void {
-    this.getBooks();
+    this.associationService.getAllBooks().subscribe(
+      res => this.BooksList = res           
+    );
   }
-  getBooks(){
-    this.httpClient.get<any>('http://localhost:8080/livre/').subscribe(
-      response => {
-        console.log(response);
-        this.BooksList = response;
-      }
-    )
-    
-  }
+
 
 }

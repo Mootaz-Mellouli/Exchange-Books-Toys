@@ -1,5 +1,106 @@
-<div class="products">
-    <div *ngFor="let book of BooksList">
-        <app-card [book]="book"></app-card>
-    </div>
-</div>
+    
+    <!-- ========================= SECTION PAGETOP ========================= -->
+    <section class="section-pagetop bg">
+        <div class="container">
+            <h2 class="title-page">Books and Toys</h2>
+        </div> <!-- container //  -->
+        </section>
+        <!-- ========================= SECTION INTRO END// ========================= -->
+        
+        <!-- ========================= SECTION CONTENT ========================= -->
+        <section class="section-content padding-y">
+        <div class="container">
+        
+        <div class="row">
+            <aside class="col-md-3">
+                
+        <div class="card">
+            <article class="filter-group">
+                <header class="card-header">
+                    <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true">
+                        <i class="icon-control fa fa-chevron-down"></i>
+                        <h6 class="title">Product type</h6>
+                    </a>
+                </header>
+                <div class="filter-content collapse show" id="collapse_1">
+                    <div class="card-body">
+                        <form class="pb-3">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search">
+                          <div class="input-group-append">
+                            <button class="btn btn-light" type="button"><i class="fa fa-search"></i></button>
+                          </div>
+                        </div>
+                        </form>
+        
+                    </div> <!-- card-body.// -->
+                </div>
+            </article> <!-- filter-group  .// -->
+            <article class="filter-group">
+                <header class="card-header">
+                    <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true">
+                        <i class="icon-control fa fa-chevron-down"></i>
+                        <h6 class="title">Book</h6>
+                    </a>
+                </header>
+                <div class="filter-content collapse show" id="collapse_2">
+                    <div class="card-body">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" checked="" class="custom-control-input">
+                          <div class="custom-control-label">Academic  
+                              <b class="badge badge-pill badge-light float-right">120</b> </div>
+                        </label><br>
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" checked="" class="custom-control-input">
+                          <div class="custom-control-label">Novel 
+                              <b class="badge badge-pill badge-light float-right">15</b>  </div>
+                        </label><br>
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" checked="" class="custom-control-input">
+                          <div class="custom-control-label">Scientific 
+                              <b class="badge badge-pill badge-light float-right">35</b> </div>
+                        </label><br>
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" checked="" class="custom-control-input">
+                          <div class="custom-control-label">Dictionary And Language 
+                              <b class="badge badge-pill badge-light float-right">89</b> </div>
+                        </label><br>
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input">
+                          <div class="custom-control-label">Art, Music And Cinema
+                              <b class="badge badge-pill badge-light float-right">30</b></div>
+                        </label><br>
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">History
+                                <b class="badge badge-pill badge-light float-right">30</b>  </div>
+                          </label>
+                    </div> <!-- card-body.// -->
+                </div>
+            </article> <!-- filter-group .// -->
+            </div> <!-- card.// -->
+        
+            </aside> <!-- col.// -->
+            <main class="col-md-9">
+
+        <div *ngFor="let book of BooksList">
+            <app-card [book]="book"></app-card>
+        </div>
+        
+        
+        <!-- <nav aria-label="Page navigation sample">
+          <ul class="pagination">
+            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav> -->
+        
+            </main> <!-- col.// -->
+        
+        </div>
+        
+        </div> <!-- container .//  -->
+</section>
