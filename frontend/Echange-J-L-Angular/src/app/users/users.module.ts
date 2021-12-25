@@ -7,6 +7,7 @@ import { AddFormComponent } from '../add-form/add-form.component';
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from '../products/products.component';
 import { CardComponent } from '../card/card.component';
+import { AddFormDonateComponent } from '../add-form-donate/add-form-donate.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CardComponent } from '../card/card.component';
     UsersComponent,
     AddFormComponent,
     ProductsComponent,
-    CardComponent
+    CardComponent,
+    AddFormDonateComponent
   ],
   imports: [
     CommonModule,
