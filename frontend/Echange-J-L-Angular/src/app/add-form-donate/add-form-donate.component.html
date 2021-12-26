@@ -23,7 +23,7 @@
   <!-------->
 
   <div class="right-container">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm"  >
+    <form (ngSubmit)="onSubmit()" #f="ngForm"  >
     <header>
 
       <div class="d-flex justify-content-center">
@@ -88,12 +88,12 @@
           <label for="pets-birthday">Category</label>
           <select  class="form-select"  ngModel name="Category">
             <option value="" disabled selected>Select your Toy's Category</option>
-            <option value="1">Society</option>
-            <option value="2">Educative</option>
-            <option value="3">Awkening</option>
-            <option value="3">Puzzle</option>
-            <option value="3">Exterior</option>
-            <option value="3">Imitation</option>
+            <option value="Society">Society</option>
+            <option value="Educative">Educative</option>
+            <option value="Awkening">Awkening</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Exterior">Exterior</option>
+            <option value="Imitation">Imitation</option>
           </select>
         </div>
       </div>
@@ -104,35 +104,52 @@
           <label for="pets-birthday">Category</label>
           <select  class="form-select"  ngModel name="Category">
             <option value="" disabled selected>Select your Book's Category</option>
-            <option value="1">Academic</option>
-            <option value="2">Novel</option>
-            <option value="3">Scientific</option>
-            <option value="3">Dictionary And Language</option>
-            <option value="3">Art, Music And Cinema</option>
-            <option value="3">History</option>
+            <option value="Academic">Academic</option>
+            <option value="Novel">Novel</option>
+            <option value="Scientific">Scientific</option>
+            <option value="Dictionary">Dictionary</option>
+            <option value="Art">Art</option>
+            <option value="History">History</option>
           </select>
         </div>
       </div>
     </ng-template>
       <!------------------------- Toy/Book Form -->
-      <div class="pets-weight">
-        <label for="pet-weight-0-25">Shape</label>
+      <div class="pets-weight" *ngIf="ToySelection; else book4">
+        <label>Shape</label>
         <div class="radio-container">
-          <input id="pet-weight-0-25" name="pet-weight" type="radio" value="0-25" ngModel name="Bad">
-          <label for="pet-weight-0-25">Bad</label>
-          <input id="pet-weight-25-50" name="pet-weight" type="radio" value="25-50" ngModel name="Not-bad">
-          <label for="pet-weight-25-50">Not Bad</label>
-          <input id="pet-weight-50-100" name="pet-weight" type="radio" value="50-100" ngModel name="Good">
-          <label for="pet-weight-50-100">Good</label>
-          <input id="pet-weight-100-plus" name="pet-weight" type="radio" value="100+" ngModel name="New">
-          <label for="pet-weight-100-plus">New</label>
+          <input id="BadToy" name="ShapeToy" type="radio" value="Bad" ngModel>
+          <label for="BadToy">Bad</label>
+          <input id="AcceptableToy" name="ShapeToy" type="radio" value="Acceptable" ngModel >
+          <label for="AcceptableToy">Acceptable</label>
+          <input id="GoodToy" name="ShapeToy" type="radio" value="Good" ngModel >
+          <label for="GoodToy">Good</label>
+          <input id="NewToy" name="ShapeToy" type="radio" value="New" ngModel >
+          <label for="NewToy">New</label>
         </div>
       </div>
+      <!---------------------------------- Book Form -->
+      <ng-template #book4>
+        <div class="pets-weight">
+          <label>Shape Of The Book</label>
+          <div class="radio-container">
+            <input id="BadBook" name="ShapeBook" type="radio" value="Bad" ngModel>
+            <label for="BadBook">Bad</label>
+            <input id="AcceptableBook" name="ShapeBook" type="radio" value="Acceptable" ngModel >
+            <label for="AcceptableBook">Acceptable</label>
+            <input id="GoodBook" name="ShapeBook" type="radio" value="Good" ngModel >
+            <label for="GoodBook">Good</label>
+            <input id="NewBook" name="ShapeBook" type="radio" value="New" ngModel >
+            <label for="NewBook">New</label>
+          </div>
+        </div>
+      </ng-template>
+      <!--------->
     </header>
     <footer>
       <div class="set">
         <button id="back">Back</button>
-        <button id="next">Next</button>
+        <button id="next" type="submit">Next</button>
       </div>
 
     </footer>
