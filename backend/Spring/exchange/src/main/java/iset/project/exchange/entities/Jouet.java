@@ -13,7 +13,6 @@ public class Jouet {
     @Indexed(unique = true)
     private String titre ;
     private String description ;
-    private String prix ;
     private Etat etat_jouet ;
     private CategorieJouet categorie_jouet ;
 }

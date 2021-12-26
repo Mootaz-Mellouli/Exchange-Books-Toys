@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Livre } from '../models/Livre';
+import { Jouet } from '../models/Jouet';
 
 @Component({
   selector: 'app-add-form',
@@ -14,21 +15,10 @@ export class AddFormComponent implements OnInit {
   @ViewChild('f', { static: false }) addForm!: NgForm;
   BookSelection = false ;
   ToySelection = true ;
-  book={
-    title : '',
-    author : ' ',
-    publishingHouse: '',
-    category:'',
-    shapeBook:''
-  };
-  toy={
-    name:'',
-    description:'',
-    category:'',
-    shapeToy:''
-  };
   submitted = false ;
+
   livre: Livre = new Livre();
+  jouet: Jouet = new Jouet();
 
 
   constructor(private userService: UserService) { }
@@ -44,12 +34,15 @@ export class AddFormComponent implements OnInit {
     this.livre.maison_edition=this.addForm.value.PublishingHouse ;
     this.livre.categorie_livre=this.addForm.value.CategoryBook ;
     this.livre.etat_livre=this.addForm.value.ShapeBook ;
-    this.toy.name=this.addForm.value.Name;
-    this.toy.description=this.addForm.value.Description ;
-    this.toy.category=this.addForm.value.CategoryToy;
-    this.toy.shapeToy=this.addForm.value.ShapeToy;
+    this.jouet.titre=this.addForm.value.Name;
+    this.jouet.description=this.addForm.value.Description ;
+    this.jouet.categorie_jouet=this.addForm.value.CategoryToy;
+    this.jouet.etat_jouet=this.addForm.value.ShapeToy;
     console.log(this.addForm);
-    this.save();
+    if(this.livre.titre!=null)
+    {this.saveBook();}
+    else
+    {this.saveToy();}
   }
 
   bookSelected(){
@@ -63,21 +56,17 @@ export class AddFormComponent implements OnInit {
   }
 
 
-  save(){
+  saveBook(){
     this.userService.addBook(this.livre)
                     .subscribe(livre=> {console.log(livre);
 
                     });
   }
-  // onCreatePost(postData:{Title:String; Author:String;})
-  // {
-  //   this.http
-  //     .post(
-  //       'http://localhost:8080/livre/add',
-  //       postData
-  //     )
-  //     .subscribe(responseData => {
-  //       console.log(responseData);
-  //     });
-  // }
+  saveToy(){
+    this.userService.addToy(this.jouet)
+                    .subscribe(jouet=> {console.log(jouet);
+
+                    });
+  }
+
 }
