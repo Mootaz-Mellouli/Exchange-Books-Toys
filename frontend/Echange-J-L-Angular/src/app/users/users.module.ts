@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from '../products/products.component';
 import { CardComponent } from '../card/card.component';
 import { AddFormDonateComponent } from '../add-form-donate/add-form-donate.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AddFormDonateComponent } from '../add-form-donate/add-form-donate.compo
   imports: [
     CommonModule,
     FormsModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    HttpClientModule
   ]
 })
 export class UsersModule { }

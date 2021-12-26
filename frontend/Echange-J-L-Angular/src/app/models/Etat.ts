@@ -1,3 +1,3 @@
 export enum Etat {
-    mauvais , passable , presque_neuf , neuf
+  Bad , Acceptable , Good , New
 }
