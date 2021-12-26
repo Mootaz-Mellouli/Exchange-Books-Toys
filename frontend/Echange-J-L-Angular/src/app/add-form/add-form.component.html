@@ -88,12 +88,12 @@
           <label for="pets-birthday">Category</label>
           <select  class="form-select"  ngModel name="CategoryToy">
             <option value="" disabled selected>Select your Toy's Category</option>
-            <option value="1">Society</option>
-            <option value="2">Educative</option>
-            <option value="3">Awkening</option>
-            <option value="3">Puzzle</option>
-            <option value="3">Exterior</option>
-            <option value="3">Imitation</option>
+            <option value="Society">Society</option>
+            <option value="Educative">Educative</option>
+            <option value="Awkening">Awkening</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Exterior">Exterior</option>
+            <option value="Imitation">Imitation</option>
           </select>
         </div>
       </div>
@@ -104,43 +104,43 @@
           <label for="pets-birthday">Category</label>
           <select  class="form-select"  ngModel name="CategoryBook">
             <option value="" disabled selected>Select your Book's Category</option>
-            <option value="1">Academic</option>
-            <option value="2">Novel</option>
-            <option value="3">Scientific</option>
-            <option value="3">Dictionary And Language</option>
-            <option value="3">Art, Music And Cinema</option>
-            <option value="3">History</option>
+            <option value="Academic">Academic</option>
+            <option value="Novel">Novel</option>
+            <option value="Scientific">Scientific</option>
+            <option value="Dictionary">Dictionary</option>
+            <option value="Art">Art</option>
+            <option value="History">History</option>
           </select>
         </div>
       </div>
     </ng-template>
       <!------------------------- Toy Form -->
       <div class="pets-weight" *ngIf="ToySelection; else book4">
-        <label for="pet-weight-0-25">Shape Of The Toy</label>
+        <label>Shape Of The Toy</label>
         <div class="radio-container">
-          <input id="pet-weight-0-25" name="ShapeToy" type="radio" value="Bad" ngModel name="Bad">
-          <label for="pet-weight-0-25">Bad</label>
-          <input id="pet-weight-25-50" name="ShapeToy" type="radio" value="Not-bad" ngModel name="Not-bad">
-          <label for="pet-weight-25-50">Not Bad</label>
-          <input id="pet-weight-50-100" name="ShapeToy" type="radio" value="Good" ngModel name="Good">
-          <label for="pet-weight-50-100">Good</label>
-          <input id="pet-weight-100-plus" name="ShapeToy" type="radio" value="New" ngModel name="New">
-          <label for="pet-weight-100-plus">New</label>
+          <input id="BadToy" name="ShapeToy" type="radio" value="Bad" ngModel>
+          <label for="BadToy">Bad</label>
+          <input id="AcceptableToy" name="ShapeToy" type="radio" value="Acceptable" ngModel >
+          <label for="AcceptableToy">Acceptable</label>
+          <input id="GoodToy" name="ShapeToy" type="radio" value="Good" ngModel >
+          <label for="GoodToy">Good</label>
+          <input id="NewToy" name="ShapeToy" type="radio" value="New" ngModel >
+          <label for="NewToy">New</label>
         </div>
       </div>
       <!---------------------------- Book Form -->
       <ng-template #book4>
       <div class="pets-weight">
-        <label for="pet-weight-0-25">Shape Of The Book</label>
+        <label>Shape Of The Book</label>
         <div class="radio-container">
-          <input id="pet-weight-0-25" name="ShapeBook" type="radio" value="Bad" ngModel name="Bad">
-          <label for="pet-weight-0-25">Bad</label>
-          <input id="pet-weight-25-50" name="ShapeBook" type="radio" value="Not-bad" ngModel name="Not-bad">
-          <label for="pet-weight-25-50">Not Bad</label>
-          <input id="pet-weight-50-100" name="ShapeBook" type="radio" value="Good" ngModel name="Good">
-          <label for="pet-weight-50-100">Good</label>
-          <input id="pet-weight-100-plus" name="ShapeBook" type="radio" value="New" ngModel name="New">
-          <label for="pet-weight-100-plus">New</label>
+          <input id="BadBook" name="ShapeBook" type="radio" value="Bad" ngModel>
+          <label for="BadBook">Bad</label>
+          <input id="AcceptableBook" name="ShapeBook" type="radio" value="Acceptable" ngModel >
+          <label for="AcceptableBook">Acceptable</label>
+          <input id="GoodBook" name="ShapeBook" type="radio" value="Good" ngModel >
+          <label for="GoodBook">Good</label>
+          <input id="NewBook" name="ShapeBook" type="radio" value="New" ngModel >
+          <label for="NewBook">New</label>
         </div>
       </div>
     </ng-template>

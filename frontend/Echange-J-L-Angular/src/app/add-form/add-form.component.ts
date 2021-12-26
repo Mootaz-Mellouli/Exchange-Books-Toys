@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { Livre } from '../models/Livre';
 
 @Component({
   selector: 'app-add-form',
@@ -8,6 +9,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./add-form.component.css']
 })
 export class AddFormComponent implements OnInit {
+
 
   @ViewChild('f', { static: false }) addForm!: NgForm;
   BookSelection = false ;
@@ -26,28 +28,28 @@ export class AddFormComponent implements OnInit {
     shapeToy:''
   };
   submitted = false ;
+  livre: Livre = new Livre();
 
 
   constructor(private userService: UserService) { }
 
 
   ngOnInit(): void {
-    this.userService.post(this.addForm.value).subscribe(
-     res => {console.log(res)}
-    );
+
   }
 
   onSubmit(){
-    this.book.title=this.addForm.value.Title ;
-    this.book.author=this.addForm.value.Author ;
-    this.book.publishingHouse=this.addForm.value.PublishingHouse ;
-    this.book.category=this.addForm.value.CategoryBook ;
-    this.book.shapeBook=this.addForm.value.ShapeBook ;
+    this.livre.titre=this.addForm.value.Title ;
+    this.livre.auteur=this.addForm.value.Author ;
+    this.livre.maison_edition=this.addForm.value.PublishingHouse ;
+    this.livre.categorie_livre=this.addForm.value.CategoryBook ;
+    this.livre.etat_livre=this.addForm.value.ShapeBook ;
     this.toy.name=this.addForm.value.Name;
     this.toy.description=this.addForm.value.Description ;
     this.toy.category=this.addForm.value.CategoryToy;
     this.toy.shapeToy=this.addForm.value.ShapeToy;
     console.log(this.addForm);
+    this.save();
   }
 
   bookSelected(){
@@ -60,6 +62,13 @@ export class AddFormComponent implements OnInit {
     this.BookSelection = false ;
   }
 
+
+  save(){
+    this.userService.addBook(this.livre)
+                    .subscribe(livre=> {console.log(livre);
+
+                    });
+  }
   // onCreatePost(postData:{Title:String; Author:String;})
   // {
   //   this.http
