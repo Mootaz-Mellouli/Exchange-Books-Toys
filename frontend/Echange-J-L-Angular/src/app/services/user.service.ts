@@ -26,10 +26,17 @@ export class UserService {
   }
 
 
+
+
 //displaying all toys with fake api
   getAllToys()
   {
     return this.http.get(this.fakeAPI);
+  }
+
+  //deleting with fake api
+  deleteToy(id: number):Observable<{}>{
+    return this.http.delete(`${this.fakeAPI}/${id}`);
   }
 }
 

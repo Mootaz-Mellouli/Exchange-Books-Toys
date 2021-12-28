@@ -8,7 +8,9 @@ import { Jouet } from '../models/Jouet';
 })
 export class CardComponent implements OnInit {
   @Input('book') book: any;
-  @Input('toy') tooy: any;
+  @Input('toy') toy!: Jouet;
+  constructor() { }
+
   ngOnInit(): void {
 
   }
