@@ -21,10 +21,14 @@ export class ProductsComponent implements OnInit {
       res => this.BooksList = res
     );
 
-    this.userService.getAllToys().subscribe(data =>{
+
+    this.userService.getAllToys().subscribe(
+      data =>
+      {
       console.log(data);
       this.toys = data;
-  });
+      }
+  );
 
 
   }
