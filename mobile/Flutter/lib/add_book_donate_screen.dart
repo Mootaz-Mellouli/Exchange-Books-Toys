@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
-void main() => runApp(AddToy());
+void main() => runApp(AddBookDonate());
 
-class AddToy extends StatelessWidget {
-  const AddToy({Key? key}) : super(key: key);
+class AddBookDonate extends StatelessWidget {
+  const AddBookDonate({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +22,38 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
 
   final boolean2 = BooleanFieldBloc();
 
-  final categoryToy = SelectFieldBloc(
-    items: ['Society', 'Educative ','Awkening','Puzzle','Exterior','Imitation'],
+  final categoryBook = SelectFieldBloc(
+    items: ['Academic', 'Novel ','Scientific','Dictionary','Art','History'],
   );
 
-  final shapeToy = SelectFieldBloc(
+  final shapeBook = SelectFieldBloc(
     items: ['Bad', 'Acceptable','Good','New'],
   );
 
+  final multiSelect1 = MultiSelectFieldBloc<String, dynamic>(
+    items: [
+      'Option 1',
+      'Option 2',
+    ],
+  );
+
+  final date1 = InputFieldBloc<DateTime?, dynamic>(initialValue: null);
+
+  final dateAndTime1 = InputFieldBloc<DateTime?, dynamic>(initialValue: null);
+
+  final time1 = InputFieldBloc<TimeOfDay?, Object>(initialValue: null);
 
   AllFieldsFormBloc() {
     addFieldBlocs(fieldBlocs: [
       text1,
       boolean1,
       boolean2,
-      categoryToy,
-      shapeToy,
+      categoryBook,
+      shapeBook,
+      multiSelect1,
+      date1,
+      dateAndTime1,
+      time1,
     ]);
   }
 
@@ -71,7 +87,7 @@ class AllFieldsForm extends StatelessWidget {
               ),
             ),
             child: Scaffold(
-              appBar: AppBar(title: const Text('Adding Toy To Exchange')),
+              appBar: AppBar(title: const Text('Adding Book To Donate')),
               body: FormBlocListener<AllFieldsFormBloc, String, String>(
                 onSubmitting: (context, state) {
                   LoadingDialog.show(context);
@@ -97,19 +113,26 @@ class AllFieldsForm extends StatelessWidget {
                         TextFieldBlocBuilder(
                           textFieldBloc: formBloc.text1,
                           decoration: const InputDecoration(
-                            labelText: 'Toy Title',
+                            labelText: 'Book Title',
                             prefixIcon: Icon(Icons.text_fields),
                           ),
                         ),
                         TextFieldBlocBuilder(
                           textFieldBloc: formBloc.text1,
                           decoration: const InputDecoration(
-                            labelText: 'Toy Description',
+                            labelText: 'Book Author',
+                            prefixIcon: Icon(Icons.text_fields),
+                          ),
+                        ),
+                        TextFieldBlocBuilder(
+                          textFieldBloc: formBloc.text1,
+                          decoration: const InputDecoration(
+                            labelText: 'Book House Publishing',
                             prefixIcon: Icon(Icons.text_fields),
                           ),
                         ),
                         DropdownFieldBlocBuilder<String>(
-                          selectFieldBloc: formBloc.categoryToy,
+                          selectFieldBloc: formBloc.categoryBook,
                           decoration: const InputDecoration(
                             labelText: 'Category',
                             prefixIcon: Icon(Icons.sentiment_satisfied),
@@ -119,9 +142,9 @@ class AllFieldsForm extends StatelessWidget {
                           ),
                         ),
                         DropdownFieldBlocBuilder<String>(
-                          selectFieldBloc: formBloc.shapeToy,
+                          selectFieldBloc: formBloc.shapeBook,
                           decoration: const InputDecoration(
-                            labelText: 'SHAPE OF THE TOY',
+                            labelText: 'SHAPE OF THE BOOK',
                             prefixIcon: Icon(Icons.sentiment_satisfied),
                           ),
                           itemBuilder: (context, value) => FieldItem(
@@ -133,9 +156,7 @@ class AllFieldsForm extends StatelessWidget {
                           child: Text('Submit'),
                         ),
                         ElevatedButton(
-                          onPressed:() {
-                            Navigator.pushNamed(context, '/home');
-                          },
+                          onPressed:() {},
                           child: Text('Cancel'),
                         ),
                       ],

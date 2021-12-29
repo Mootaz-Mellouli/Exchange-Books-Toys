@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
-void main() => runApp(AddToy());
+void main() => runApp(AddToyDonate());
 
-class AddToy extends StatelessWidget {
-  const AddToy({Key? key}) : super(key: key);
+class AddToyDonate extends StatelessWidget {
+  const AddToyDonate({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class AllFieldsForm extends StatelessWidget {
               ),
             ),
             child: Scaffold(
-              appBar: AppBar(title: const Text('Adding Toy To Exchange')),
+              appBar: AppBar(title: const Text('Adding Toy To Donate')),
               body: FormBlocListener<AllFieldsFormBloc, String, String>(
                 onSubmitting: (context, state) {
                   LoadingDialog.show(context);
