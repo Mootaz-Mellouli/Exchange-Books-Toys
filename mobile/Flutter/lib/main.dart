@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/add_book_donate_screen.dart';
+import 'package:mobile/add_toy_donate_screen.dart';
 import 'package:mobile/add_toy_screen.dart';
 import './add_book_screen.dart';
 import 'appbar.dart';
@@ -14,7 +16,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/add_book' : (BuildContext context) =>  AddBook() ,
         '/add_toy' : (BuildContext context) => AddToy()  ,
-        '/home': (BuildContext context) => MyHomePage()
+        '/home': (BuildContext context) => MyHomePage() ,
+        '/add_book_donate' : (BuildContext context) =>  AddBookDonate() ,
+        '/add_toy_donate' : (BuildContext context) =>  AddToyDonate() ,
+
       },
     );
   }
@@ -44,24 +49,52 @@ class MyHomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text('Drawer Header'),
+              child: Text('EXCHANGE AND DONATE YOUR BOOKS AND TOYS'),
             ),
             ListTile(
-              title: const Text('Item 1'),
+              title: const Text('Add Your Book'),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/add_book');
+               // Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('Item 2'),
+              title: const Text('Donate Your Book'),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/add_book_donate');
+              },
+            ),
+            ListTile(
+              title: const Text('View List Of Books'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pushNamed(context, '/');
+              },
+            ),
+            ListTile(
+              title: const Text('Add Your Toy'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pushNamed(context, '/add_toy');
+              },
+            ),
+            ListTile(
+              title: const Text('Donate Your Toy'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pushNamed(context, '/add_toy_donate');
               },
             ),
           ],
@@ -75,7 +108,7 @@ class MyHomePage extends StatelessWidget {
               padding: EdgeInsets.all(10),
               width: double.infinity,
               child: const Text(
-                  ("With our App you can exchange and donate your old books or toys with simple click! "),
+                  (" "),
                 style: TextStyle(
                   fontSize: 30,
                   fontFamily: 'popin',
@@ -126,14 +159,14 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
 
                   children: <Widget>[
-                    Text(
+                    const Text(
                         ("Exchange"),
                         style: TextStyle(
                             fontSize: 18 ,
                             fontWeight: FontWeight.bold
                         )
                     ),
-                    Text(
+                    const Text(
                         (" Add your Toy to our list of exchanges"),
                         style: TextStyle(
                             fontSize: 12 ,
@@ -161,14 +194,14 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
 
                   children: <Widget>[
-                    Text(
+                    const Text(
                         ("Receive"),
                         style: TextStyle(
                             fontSize: 18 ,
                             fontWeight: FontWeight.bold
                         )
                     ),
-                    Text(
+                    const Text(
                         ("Choose a book  "),
                         style: TextStyle(
                             fontSize: 12 ,
@@ -195,15 +228,15 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
 
                   children: <Widget>[
-                    Text(
+                    const Text(
                     ("Donate"),
                       style: TextStyle(
                           fontSize: 18 ,
                           fontWeight: FontWeight.bold
                       )
                     ),
-                    Text(
-                        ("Donate for who in need "),
+                    const Text(
+                        ("Donate Your Book for who in need "),
                         style: TextStyle(
                             fontSize: 12 ,
                             fontWeight: FontWeight.normal
@@ -211,10 +244,46 @@ class MyHomePage extends StatelessWidget {
                     ),
 
                     FlatButton(
-                      child: Text('Donate'),
+                      child: const Text('Donate Your Book'),
                       textColor: Colors.purple,
                       onPressed: () {
-                        Navigator.pushNamed(context, '/add_toy');
+                        Navigator.pushNamed(context, '/add_book_donate');
+                      },
+                    ),
+                  ],
+                ),
+                elevation: 5,
+              ),
+            ),
+            Container(
+
+              padding: EdgeInsets.all(10),
+              width: double.infinity,
+              child:  Card(
+                color: Colors.blueAccent,
+                child: Column(
+
+                  children: <Widget>[
+                    const Text(
+                        ("Donate"),
+                        style: TextStyle(
+                            fontSize: 18 ,
+                            fontWeight: FontWeight.bold
+                        )
+                    ),
+                    const Text(
+                        ("Donate Your Toy for who in need "),
+                        style: TextStyle(
+                            fontSize: 12 ,
+                            fontWeight: FontWeight.normal
+                        )
+                    ),
+
+                    FlatButton(
+                      child: Text('Donate Your Toy'),
+                      textColor: Colors.purple,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/add_toy_donate');
                       },
                     ),
                   ],
