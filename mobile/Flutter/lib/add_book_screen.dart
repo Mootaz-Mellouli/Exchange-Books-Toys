@@ -108,58 +108,68 @@ class AllFieldsForm extends StatelessWidget {
                   physics: ClampingScrollPhysics(),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: <Widget>[
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text1,
-                          decoration: const InputDecoration(
-                            labelText: 'Book Title',
-                            prefixIcon: Icon(Icons.text_fields),
+                    child: Form(
+                      child: Column(
+                        children: <Widget>[
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              labelText: 'Book Title ',
+                              prefixIcon: Icon(Icons.text_fields),
+                            ),
+                            keyboardType: TextInputType.multiline,
                           ),
-                        ),
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text1,
-                          decoration: const InputDecoration(
-                            labelText: 'Book Author',
-                            prefixIcon: Icon(Icons.text_fields),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              labelText: 'Book Author',
+                              prefixIcon: Icon(Icons.text_fields),
+                            ),
                           ),
-                        ),
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text1,
-                          decoration: const InputDecoration(
-                            labelText: 'Book House Publishing',
-                            prefixIcon: Icon(Icons.text_fields),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              labelText: 'Book House Publishing',
+                              prefixIcon: Icon(Icons.text_fields),
+                            ),
                           ),
-                        ),
-                        DropdownFieldBlocBuilder<String>(
-                          selectFieldBloc: formBloc.categoryBook,
-                          decoration: const InputDecoration(
-                            labelText: 'Category',
-                            prefixIcon: Icon(Icons.sentiment_satisfied),
+                          DropdownFieldBlocBuilder<String>(
+                            selectFieldBloc: formBloc.categoryBook,
+                            decoration: const InputDecoration(
+                              labelText: 'Category',
+                              prefixIcon: Icon(Icons.sentiment_satisfied),
+                            ),
+                            itemBuilder: (context, value) => FieldItem(
+                              child: Text(value),
+                            ),
                           ),
-                          itemBuilder: (context, value) => FieldItem(
-                            child: Text(value),
+                          DropdownFieldBlocBuilder<String>(
+                            selectFieldBloc: formBloc.shapeBook,
+                            decoration: const InputDecoration(
+                              labelText: 'SHAPE OF THE BOOK',
+                              prefixIcon: Icon(Icons.sentiment_satisfied),
+                            ),
+                            itemBuilder: (context, value) => FieldItem(
+                              child: Text(value),
+                            ),
                           ),
-                        ),
-                        DropdownFieldBlocBuilder<String>(
-                          selectFieldBloc: formBloc.shapeBook,
-                          decoration: const InputDecoration(
-                            labelText: 'SHAPE OF THE BOOK',
-                            prefixIcon: Icon(Icons.sentiment_satisfied),
+                          DropdownFieldBlocBuilder<String>(
+                            selectFieldBloc: formBloc.shapeBook,
+                            decoration: const InputDecoration(
+                              labelText: 'SHAPE OF THE BOOK',
+                              prefixIcon: Icon(Icons.sentiment_satisfied),
+                            ),
+                            itemBuilder: (context, value) => FieldItem(
+                              child: Text(value),
+                            ),
                           ),
-                          itemBuilder: (context, value) => FieldItem(
-                            child: Text(value),
+                          ElevatedButton(
+                            onPressed:() {},
+                            child: Text('Submit'),
                           ),
-                        ),
-                        ElevatedButton(
-                          onPressed:() {},
-                          child: Text('Submit'),
-                        ),
-                        ElevatedButton(
-                          onPressed:() {},
-                          child: Text('Cancel'),
-                        ),
-                      ],
+                          ElevatedButton(
+                            onPressed:() {},
+                            child: Text('Cancel'),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
