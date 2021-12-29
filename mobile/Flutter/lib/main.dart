@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'appbar.dart';
+import 'products.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -67,8 +68,8 @@ class MyHomePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(10),
             width: double.infinity,
-            child: Text(
-                ("With our App you can exchange and donate your old books or toys with simple click! "),
+            child: const Text(
+              ("With our App you can exchange and donate your old books or toys with simple click! "),
               style: TextStyle(
                 fontSize: 30,
                 fontFamily: 'popin',
@@ -84,14 +85,14 @@ class MyHomePage extends StatelessWidget {
               child: Column(
 
                 children: <Widget>[
-                  Text(
+                  const Text(
                       ("Exchange"),
                       style: TextStyle(
                           fontSize: 18 ,
                           fontWeight: FontWeight.bold
                       )
                   ),
-                  Text(
+                  const Text(
                       (" Add your book to our list of exchanges"),
                       style: TextStyle(
                           fontSize: 12 ,
@@ -122,7 +123,7 @@ class MyHomePage extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 18 ,
                           fontWeight: FontWeight.bold
-                      )
+                      ),
                   ),
                   Text(
                       ("Choose a book  "),
@@ -135,7 +136,9 @@ class MyHomePage extends StatelessWidget {
                   FlatButton(
                     child: Text('View List'),
                     textColor: Colors.purple,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FetchAPI()));
+                    },
                   ),
                 ],
               ),

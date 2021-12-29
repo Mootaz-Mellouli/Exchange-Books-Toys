@@ -1,9 +1,9 @@
 class Association {
-  int _id;
+  String _id;
   String _nomAssociation;
   String _matricule;
   String _adresse;
-  int _numTelAssociation;
+  String _numTelAssociation;
   String _emailAssociation;
   String _motDePasseAssociation;
 
@@ -28,9 +28,9 @@ class Association {
     _emailAssociation = value;
   }
 
-  int get numTelAssociation => _numTelAssociation;
+  String get numTelAssociation => _numTelAssociation;
 
-  set numTelAssociation(int value) {
+  set numTelAssociation(String value) {
     _numTelAssociation = value;
   }
 
@@ -52,9 +52,9 @@ class Association {
     _nomAssociation = value;
   }
 
-  int get id => _id;
+  String get id => _id;
 
-  set id(int value) {
+  set id(String value) {
     _id = value;
   }
 }
