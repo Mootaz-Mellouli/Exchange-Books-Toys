@@ -1,4 +1,4 @@
-<article class="card card-product-list">
+<article class="card card-product-list" *ngIf="type=='book';">
     <div class="row no-gutters">
         <aside class="col-md-3">
             <a href="#" class="img-wrap">
@@ -23,7 +23,7 @@
 </article> <!-- card-product .// -->
 <br>
 <!----- ------------- -------------------  Displaying Toy-->
-<article class="card card-product-list">
+<article class="card card-product-list" *ngIf="type=='toy';">
   <div class="row no-gutters">
       <aside class="col-md-3">
           <a href="#" class="img-wrap">

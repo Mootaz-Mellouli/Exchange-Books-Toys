@@ -11,6 +11,7 @@ export class UserService {
 
   private addBookAPI = 'http://localhost:8080/livre/add';
   private addToyAPI= 'http://localhost:8080/jouet/add';
+  private toyAPI= 'http://localhost:8080/jouet';
   //Fake API
   private fakeAPI = 'https://exchange-donate-default-rtdb.europe-west1.firebasedatabase.app/post.json'
 
@@ -26,7 +27,10 @@ export class UserService {
   }
 
 
-
+  getAllToysREAL()
+  {
+    return this.http.get(this.toyAPI + "/");
+  }
 
 //displaying all toys with fake api
   getAllToys()
