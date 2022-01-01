@@ -31,12 +31,12 @@ public class AuthService implements UserDetailsService {
 	public AuthService(UserAuthRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-	public UserAuth saveUser(String username, String password, String confirmedPassword) {    
+	public UserAuth saveUser(String username, String password) {    
 		UserAuth appUser= new UserAuth();
 	    if(userRepository.findByUsername(username).isPresent()==true)
 	        throw new RuntimeException("User already exists");
-	    if(!password.equals(confirmedPassword))
-	        throw new RuntimeException("Please confirm your password");
+	   /* if(!password.equals(confirmedPassword))
+	        throw new RuntimeException("Please confirm your password");*/
 	    appUser.setUsername(username);
 	     //appUser.setEnabled(true);
 	    Set<Role> roles = new HashSet<Role>();
