@@ -1,11 +1,19 @@
 const express = require('express');
-const res = require('express/lib/response');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/exchange',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connected successfully to MongoDB !'))
+  .catch(() => console.log('Connection failed to MongoDB !'));
 
 const app = express();
 
-app.use((req,res)=>{
-res.json("hello world aaaa ! ");
-
-});
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+  });
 
 module.exports = app;
