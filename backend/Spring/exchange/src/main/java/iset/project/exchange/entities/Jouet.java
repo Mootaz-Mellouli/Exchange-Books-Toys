@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document("jouet")
+
 public class Jouet {
     @Id
     private String id ;
@@ -16,4 +17,5 @@ public class Jouet {
     private Etat etat_jouet ;
     private CategorieJouet categorie_jouet ;
     private String uploaded_by;
+    private  Boolean donate  ;
 }

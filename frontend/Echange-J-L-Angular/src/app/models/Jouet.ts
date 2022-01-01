@@ -8,5 +8,6 @@ export class Jouet {
   etat_jouet!: Etat;
   categorie_jouet!: CategorieJouet;
   uploaded_by!: String;
+  donate!: Boolean;
 
 }
