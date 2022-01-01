@@ -40,9 +40,15 @@ export class AddFormComponent implements OnInit {
     this.jouet.etat_jouet=this.addForm.value.ShapeToy;
     console.log(this.addForm);
     if(this.livre.titre!=null)
-    {this.saveBook();}
+    {
+    this.saveBook();
+    this.submitted=true;
+    }
     else
-    {this.saveToy();}
+    {
+    this.saveToy();
+    this.submitted=true;
+    }
   }
 
   bookSelected(){

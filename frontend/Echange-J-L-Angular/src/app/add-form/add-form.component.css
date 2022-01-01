@@ -190,3 +190,13 @@ padding-top: 4cm;
 	 background: #f7b1ab;
 	 border: 1px solid rgba(0, 0, 0, .1);
 }
+input.ng-invalid.ng-touched{
+  border: 3px solid red;
+}
+select.ng-invalid.ng-touched{
+  border: red 3px solid;
+}
+textarea.ng-invalid.ng-touched
+{
+  border: red 3px solid;
+}

@@ -41,7 +41,8 @@
       <div class="set" *ngIf="ToySelection; else book" >
         <div class="pets-name">
           <label for="pets-name">Name</label>
-          <input id="pets-name" placeholder="Toy's name" type="text" ngModel name="Name">
+          <input required id="pets-name" placeholder="Toy's name" type="text" ngModel name="Name" #name="ngModel">
+          <span class="help-block" *ngIf="!name.valid && name.touched">Name is required</span>
         </div>
         <div class="pets-photo">
           <button id="pets-upload">
@@ -55,7 +56,8 @@
       <div class="set" >
         <div class="pets-name">
           <label for="pets-name">Book Title</label>
-          <input id="pets-name" placeholder="Title Book" type="text" ngModel name="Title">
+          <input required id="pets-name" placeholder="Title Book" type="text" ngModel name="Title" #name="ngModel">
+          <span class="help-block" *ngIf="!name.valid && name.touched">Name is required</span>
         </div>
         <div class="pets-photo">
           <button id="pets-upload">
@@ -67,11 +69,13 @@
       <div class="set" >
         <div class="pets-name">
           <label for="pets-name">Book Author</label>
-          <input id="pets-name" placeholder="Author Book" type="text" ngModel name="Author">
+          <input required id="pets-name" placeholder="Author Book" type="text" ngModel name="Author" #author="ngModel">
+          <span class="help-block" *ngIf="!author.valid && author.touched">Author is required</span>
         </div>
         <div class="pets-name">
           <label for="pets-name">Publishing House</label>
-          <input id="pets-name" placeholder="Book's Publishing house" type="text" ngModel name="PublishingHouse">
+          <input required id="pets-name" placeholder="Book's Publishing house" type="text" ngModel name="PublishingHouse" #house="ngModel">
+          <span class="help-block" *ngIf="!house.valid && house.touched">Publishing House is required</span>
         </div>
 
       </div>
@@ -82,11 +86,12 @@
       <div class="set" *ngIf="ToySelection; else book2">
         <div class="pets-breed">
           <label for="pets-breed">Description</label>
-          <textarea placeholder="Describe your toy " id="Description" ngModel name="Description"></textarea>
+          <textarea required placeholder="Describe your toy " id="Description" ngModel name="Description" #description="ngModel"></textarea>
+          <span class="help-block" *ngIf="!description.valid && description.touched">Description  is required</span>
         </div>
         <div class="pets-birthday"  >
           <label for="pets-birthday">Category</label>
-          <select  class="form-select"  ngModel name="CategoryToy">
+          <select  required class="form-select"  ngModel name="CategoryToy" #category="ngModel">
             <option value="" disabled selected>Select your Toy's Category</option>
             <option value="Society">Society</option>
             <option value="Educative">Educative</option>
@@ -95,6 +100,7 @@
             <option value="Exterior">Exterior</option>
             <option value="Imitation">Imitation</option>
           </select>
+          <span class="help-block" *ngIf="!category.valid && category.touched">category is required</span>
         </div>
       </div>
       <!---------------- Book Form ------------------------>
@@ -102,7 +108,7 @@
       <div class="set">
         <div class="pets-birthday"  >
           <label for="pets-birthday">Category</label>
-          <select  class="form-select"  ngModel name="CategoryBook">
+          <select required class="form-select"  ngModel name="CategoryBook"  #category="ngModel">
             <option value="" disabled selected>Select your Book's Category</option>
             <option value="Academic">Academic</option>
             <option value="Novel">Novel</option>
@@ -111,6 +117,7 @@
             <option value="Art">Art</option>
             <option value="History">History</option>
           </select>
+          <span class="help-block" *ngIf="!category.valid && category.touched">category is required</span>
         </div>
       </div>
     </ng-template>
@@ -118,7 +125,7 @@
       <div class="pets-weight" *ngIf="ToySelection; else book4">
         <label>Shape Of The Toy</label>
         <div class="radio-container">
-          <input id="BadToy" name="ShapeToy" type="radio" value="Bad" ngModel>
+          <input id="BadToy" name="ShapeToy" type="radio" value="Bad" ngModel required>
           <label for="BadToy">Bad</label>
           <input id="AcceptableToy" name="ShapeToy" type="radio" value="Acceptable" ngModel >
           <label for="AcceptableToy">Acceptable</label>
@@ -133,7 +140,7 @@
       <div class="pets-weight">
         <label>Shape Of The Book</label>
         <div class="radio-container">
-          <input id="BadBook" name="ShapeBook" type="radio" value="Bad" ngModel>
+          <input id="BadBook" name="ShapeBook" type="radio" value="Bad" ngModel required>
           <label for="BadBook">Bad</label>
           <input id="AcceptableBook" name="ShapeBook" type="radio" value="Acceptable" ngModel >
           <label for="AcceptableBook">Acceptable</label>
@@ -148,13 +155,18 @@
     </header>
     <footer>
       <div class="set">
-        <button id="back">Back</button>
-        <button id="next" type="submit">Submit</button>
+        <button id="back" routerLink="/">Back</button>
+        <button id="next" type="submit" [disabled]="!f.valid" >Submit</button>
+
       </div>
+      <!-------------------  MODAL     ----------------------->
+
+
 
     </footer>
   </form>
 
   </div>
+  </div>
 
-</div>
+
