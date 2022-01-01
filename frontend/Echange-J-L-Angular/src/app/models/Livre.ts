@@ -8,6 +8,7 @@ export class Livre {
         maison_edition!: String;
         etat_livre!: Etat;
         categorie_livre!: CategorieLivre;
+        uploaded_by!: String;
         donate!: Boolean ;
 
 }

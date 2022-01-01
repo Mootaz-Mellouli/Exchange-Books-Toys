@@ -1,48 +1,49 @@
-<div class="container-fluid px-1 py-5 mx-auto">
+<div class="container-fluid px-1 py-5 mx-auto" *ngIf="stat;">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3>Start Donating!</h3>
-            <p class="blue-text">Fill In The Form Below With The Necessary Book Details</p>
+            <h3>Updating: {{toy.titre}}</h3>
+            <p class="blue-text">Fill In The Form Below With The Necessary Toy Details</p>
+            <div class="alert alert-success" *ngIf="updateState=='success'" role="alert">
+                Toy succesfully updated! 
+            </div>
+            <div class="alert alert-danger" *ngIf="updateState=='failed'" role="alert">
+                Update Failed! 
+            </div>
             <div class="card">
                 <!-- <h5 class="text-center mb-4">Powering world-class companies</h5> -->
-                <form class="form-card" onsubmit="">
+                <form class="form-card" (ngSubmit)="onSubmit($event)" #f="ngForm">
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Title<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter book title" onblur=""> </div>
-                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Author<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter book author" onblur=""> </div>
-                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Publisher<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="Enter book publisher-house" onblur=""> </div>
-
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Title<span class="text-danger"> *</span></label> <input type="text" ngModel="{{toy.titre}}" id="fname" name="titre" placeholder="Enter book title"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Toy ID<span class="text-danger"> *</span></label> <input type="text" ngModel="{{toy.id}}" id="fname" name="id" disabled placeholder=""> </div>
                     </div>
 
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Status<span class="text-danger"> *</span></label>                             
-                            <select aria-label="Default select example">
-                                <option selected>Status</option>
-                                <option value="1">Bad</option>
-                                <option value="2">Reasonably Good</option>
-                                <option value="3">Almost New</option>
-                                <option value="4">New</option>
-                            </select> 
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">shape<span class="text-danger"> *</span></label>                             
+                            <select required aria-label="Default select example" name="etat" ngModel="{{toy.etat_jouet}}">
+                                <option value="" disabled selected>Select your Toy's Shape</option>
+                                <option value="Society">Bad</option>
+                                <option value="Educative">Acceptable</option>
+                                <option value="Awkening">Good</option>
+                                <option value="Puzzle">New</option>
+                            </select>
                         </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Categorie<span class="text-danger"> *</span></label> 
-                            <select aria-label="Default select example">
-                                <option selected>Category</option>
-                                <option value="1">Academic</option>
-                                <option value="2">Novel</option>
-                                <option value="3">Scientifc</option>
-                                <option value="3">Linguistic Dictionary</option>
-                                <option value="3">Art-Music-Cinema</option>
-                                <option value="3">History</option>
+                            <select aria-label="Default select example" name="categorie" ngModel="{{toy.categorie_jouet}}">
+                                <option disabled>Select your Toys's Category</option>
+                                <option value="Academic">Society</option>
+                                <option value="Novel">Educative</option>
+                                <option value="Scientific">Awkening</option>
+                                <option value="Dictionary">Puzzle</option>
+                                <option value="Art">Exterior</option>
+                                <option value="History">Imitation</option>
                             </select>
                         </div>
                     </div>
                     <div class="row text-left">
-                        <div class="form-group col-lg flex-column d-flex"> <label class="form-control-label px-3">Description<span class="text-danger"> *</span></label> <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"placeholder="Small Description About the Book(Personal experience, Directed for which type of Readers)" onblur=""></textarea>  </div>
-                    </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Book Image<span class="text-danger"> *</span></label> <input type="file" id="eninput" lang="en" name="ans" placeholder="" onblur=""> </div>
+                        <div class="form-group col-lg flex-column d-flex"> <label class="form-control-label px-3">Description<span class="text-danger"> *</span></label> <textarea name="description" ngModel="{{toy.description}}" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"placeholder="Small Description About the Book(Personal experience, Directed for which type of Readers)"></textarea>  </div>
                     </div>
                     <div class="row justify-content-end">
-                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Donate</button> </div>
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Update</button> </div>
                     </div>
                 </form>
             </div>

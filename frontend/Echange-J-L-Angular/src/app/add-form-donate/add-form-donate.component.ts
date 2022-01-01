@@ -31,8 +31,21 @@ export class AddFormDonateComponent implements OnInit {
   jouet: Jouet = new Jouet();
 
   constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
+  stat = true;
+  uploaded = "";
+  data = [];
+  post = "";
+  ngOnInit (): void {
+    if(localStorage.getItem("status")=="False"){
+      this.stat=false;
+      window.location.href="/"
+    }
+    else {
+      this.data = JSON.parse(localStorage.getItem("userData") || "");
+      this.data.map((item:any)=>{
+        this.uploaded = item.username;
+    });
+    }
   }
   onSubmit(){
     this.livre.titre=this.addForm.value.Title ;
@@ -40,13 +53,17 @@ export class AddFormDonateComponent implements OnInit {
     this.livre.maison_edition=this.addForm.value.PublishingHouse ;
     this.livre.categorie_livre=this.addForm.value.CategoryBook ;
     this.livre.etat_livre=this.addForm.value.ShapeBook ;
+    this.livre.uploaded_by=this.uploaded;
     this.jouet.titre=this.addForm.value.Name;
     this.jouet.description=this.addForm.value.Description ;
     this.jouet.categorie_jouet=this.addForm.value.CategoryToy;
     this.jouet.etat_jouet=this.addForm.value.ShapeToy;
+    this.jouet.uploaded_by=this.uploaded;
     this.jouet.donate=true;
     this.livre.donate=true;
     console.log(this.addForm);
+    console.log(this.uploaded);
+    
     if(this.livre.titre!=null)
     {
       this.saveBook();
@@ -61,15 +78,11 @@ export class AddFormDonateComponent implements OnInit {
 
   saveBook(){
     this.userService.addBook(this.livre)
-                    .subscribe(livre=> {console.log(livre);
-
-                    });
+                    .subscribe(livre=> {this.post="success";}, err=>{this.post="failed"});
   }
   saveToy(){
     this.userService.addToy(this.jouet)
-                    .subscribe(jouet=> {console.log(jouet);
-
-                    });
+                    .subscribe(jouet=> {this.post="success";}, err=>{this.post="failed"});
   }
 
 

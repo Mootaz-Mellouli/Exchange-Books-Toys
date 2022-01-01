@@ -1,4 +1,4 @@
-<div class="signup-container">
+<div class="signup-container" *ngIf="stat;">
   <!-----------------Toy Form-->
   <div class="left-container" *ngIf="ToySelection; else book3">
     <h1>
@@ -23,6 +23,12 @@
   <!-------->
 
   <div class="right-container">
+    <div class="alert alert-success" *ngIf="post=='success'" role="alert">
+      Product Successfully Uploaded! 
+    </div>
+    <div class="alert alert-danger d-flex justify-content-center" style="height: 3rem;" *ngIf="post=='failed'" role="alert">
+        Upload Failed! 
+    </div>
     <form (ngSubmit)="onSubmit()" #f="ngForm" >
     <header>
 

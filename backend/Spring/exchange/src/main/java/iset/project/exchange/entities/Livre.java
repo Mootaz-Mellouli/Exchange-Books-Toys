@@ -14,10 +14,9 @@ public class Livre {
     private String titre ;
     private String auteur ;
     private String maison_edition;
-    private String prix_livre ;
     private Etat etat_livre ;
     private CategorieLivre categorie_livre;
+    private String uploaded_by;
     private String image_livre;
     private Boolean donate ;
-
 }

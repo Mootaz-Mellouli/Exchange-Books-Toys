@@ -18,11 +18,22 @@ export class AuthentificationService {
         body: bodyString
     });
   }
+  public Register(username:string, password:string):Observable<Object>{
+    let user = {
+      username: username,
+      password: password
+    }
+    return this.http.post(this.authAPI+"/auth/register", user);
+  }
   public logout(){
     return this.http.get(this.authAPI+"/logout");
   }
   public getUsers(){
     return this.http.get<any>(this.authAPI+"/auth/users");
   }
-  
+
+  public getUserByUsername(username: any){
+    return this.http.get<any>(this.authAPI+"/auth/users/?username="+username);
+  }
+
 }

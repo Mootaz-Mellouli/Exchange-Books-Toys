@@ -59,6 +59,7 @@ http.csrf()
 .and()
 .authorizeRequests()
 .antMatchers("/login").permitAll()
+.antMatchers("/auth/register").permitAll()
 .antMatchers("/logout").permitAll()
 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 .anyRequest().permitAll();

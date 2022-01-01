@@ -16,8 +16,6 @@ public class Jouet {
     private String description ;
     private Etat etat_jouet ;
     private CategorieJouet categorie_jouet ;
+    private String uploaded_by;
     private  Boolean donate  ;
-
-
-
 }

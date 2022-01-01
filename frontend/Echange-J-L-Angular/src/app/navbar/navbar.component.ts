@@ -8,21 +8,20 @@ import { AuthentificationService } from '../services/authentification.service';
 export class NavbarComponent implements OnInit {
 
   constructor(private service: AuthentificationService) { }
-  dataUser:[] = [];
+  dataUser:any;
   stat = localStorage.getItem("status");
   data = localStorage.getItem("userData");
   user:string = "";
   ngOnInit(): void {
     
     if(this.stat=="True"){
-      this.dataUser = JSON.parse(localStorage.getItem("userData") || "");
+      this.dataUser = JSON.parse(this.data || "");
+      this.user = this.dataUser.username;
     }
     else {
-      this.dataUser = [];
+      this.dataUser = {};
     }
-    this.dataUser.map((item: any) => {
-      this.user = item.username
-    })
+
   }
 
   onLogout(){
@@ -30,18 +29,5 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem("status", "False");
     localStorage.removeItem("userData");
     window.location.reload();
-  }
-
-
-  
-
-  // userData = JSON.stringify(this.data);
-  displayStyle = "none";
-
-  openPopup() {
-    this.displayStyle = "block";
-  }
-  closePopup() {
-    this.displayStyle = "none";
   }
 }
