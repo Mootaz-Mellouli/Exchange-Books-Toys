@@ -22,7 +22,6 @@ public class JouetController {
         {
                 return jouetService.getAllToys() ;
         }
-
         @PostMapping("/add")
         public Jouet addToy(@RequestBody Jouet jouet)
         {

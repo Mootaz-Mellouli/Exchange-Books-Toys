@@ -44,11 +44,19 @@ export class AddFormDonateComponent implements OnInit {
     this.jouet.description=this.addForm.value.Description ;
     this.jouet.categorie_jouet=this.addForm.value.CategoryToy;
     this.jouet.etat_jouet=this.addForm.value.ShapeToy;
+    this.jouet.donate=true;
+    this.livre.donate=true;
     console.log(this.addForm);
     if(this.livre.titre!=null)
-    {this.saveBook();}
+    {
+      this.saveBook();
+
+    }
     else
-    {this.saveToy();}
+    {
+      this.saveToy();
+
+    }
   }
 
   saveBook(){
