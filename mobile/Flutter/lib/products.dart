@@ -12,7 +12,6 @@ import 'details.dart';
 class FetchAPI extends StatefulWidget {
   @override
   _ProductList createState() => _ProductList();
-
 }
 
 class _ProductList extends State<FetchAPI> {
@@ -47,20 +46,21 @@ class _ProductList extends State<FetchAPI> {
     var route = MaterialPageRoute(
       builder: (BuildContext context) => Details(value: Type(id: selectedID, type: type)),
     );
-    return ListView.builder(
-      itemCount: values.length,
-      itemBuilder: (BuildContext context, int index) {
-        return values.isNotEmpty
-            ?
+    if(values!=null){
+      return ListView.builder(
+        itemCount: values.length,
+        itemBuilder: (BuildContext context, int index) {
+          return values.isNotEmpty
+              ?
           GestureDetector(
-            onTap: (){
-              setState(() {
-                selectedID = values[index].id;
-                type = "toy";
-              });
-              Navigator.of(context).push(route);
-            },
-            child: Column(
+              onTap: (){
+                setState(() {
+                  selectedID = values[index].id;
+                  type = "toy";
+                });
+                Navigator.of(context).push(route);
+              },
+              child: Column(
                 children: <Widget>[
                   ListTile(
                     title: Text(values[index].titre),
@@ -72,9 +72,12 @@ class _ProductList extends State<FetchAPI> {
                   ),
                 ],
               ))
-            : CircularProgressIndicator();
-      },
-    );
+              : CircularProgressIndicator();
+        },
+      );
+    }else {
+      return Container(child: const Center(child: Text("No data", textAlign: TextAlign.center,)),);
+    }
   }
 
   Widget createBooksListView(BuildContext context, AsyncSnapshot snapshot) {
@@ -82,34 +85,40 @@ class _ProductList extends State<FetchAPI> {
     var route = MaterialPageRoute(
       builder: (BuildContext context) => Details(value: Type(id: selectedID, type: type)),
     );
-    return ListView.builder(
-      itemCount: values.length,
-      itemBuilder: (BuildContext context, int index) {
-        return values.isNotEmpty
-            ?
-        GestureDetector(
-          onTap: (){
-            setState(() {
-              selectedID = values[index].id;
-              type = "book";
-            });
-            Navigator.of(context).push(route);
-          },
-          child: Column(
-            children: <Widget>[
-              ListTile(
-                title: Text(values[index].titre),
-                subtitle: Text(values[index].auteur),
-                trailing: Image.asset("assets/Images/books.jpg"),
-              ),
-              const Divider(
-                height: 2.0,
-              ),
-            ],
-          ))
-            : CircularProgressIndicator();
-      },
-    );
+    if(values!=null){
+      return ListView.builder(
+        itemCount: values.length,
+        itemBuilder: (BuildContext context, int index) {
+          return values.isNotEmpty
+              ?
+          GestureDetector(
+              onTap: (){
+                setState(() {
+                  selectedID = values[index].id;
+                  type = "book";
+                });
+                Navigator.of(context).push(route);
+              },
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text(values[index].titre),
+                    subtitle: Text(values[index].auteur),
+                    trailing: Image.asset("assets/Images/books.jpg"),
+                  ),
+                  const Divider(
+                    height: 2.0,
+                  ),
+                ],
+              ))
+              : CircularProgressIndicator();
+        },
+      );
+    }
+    else {
+      return Container(child: const Center(child: Text("No data")),);
+    }
+
   }
 
   @override
@@ -125,17 +134,26 @@ class _ProductList extends State<FetchAPI> {
     ),
       body: Row(children: <Widget>[
         Expanded(
-          child: FutureBuilder(
+          child: FutureBuilder<dynamic>(
               future: getBooks(),
               builder: (context, snapshot) {
-                return createBooksListView(context, snapshot);
+                if(snapshot.data!=null) {
+                  return createBooksListView(context, snapshot);
+                }
+                else {
+                  return const Text("No Book Data");
+                }
               }),
         ),
         Expanded(
-          child: FutureBuilder(
+          child: FutureBuilder<dynamic>(
               future: getToys(),
               builder: (context, snapshot) {
+              if(snapshot.data!=null) {
                 return createToysListView(context, snapshot);
+              } else {
+                  return const Text("No Toy Data");
+              }
               }),
         ),
       ],

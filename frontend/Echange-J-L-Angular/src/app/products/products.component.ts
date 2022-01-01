@@ -11,6 +11,11 @@ import { UserService } from '../services/user.service';
 export class ProductsComponent implements OnInit {
   public BooksList: any = [];
   public toys: any = [];
+  public data: any = [];
+  public test: any;
+  public itemCount: Number = 0;
+  public inte: any = "";
+  
   constructor(
     private associationService: AssociationService ,
     private userService: UserService
@@ -18,16 +23,31 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.associationService.getAllBooks().subscribe(
-      res => this.BooksList = res
+      res => {
+        this.BooksList = res;
+        this.BooksList.map((item:any)=>{
+          item.type="book";
+        });
+        this.test = this.data.push(...this.BooksList);
+        this.itemCount = this.test;
+      }
     );
 
-    this.userService.getAllToys().subscribe(data =>{
+    this.userService.getAllToysREAL().subscribe(data =>{
       console.log(data);
       this.toys = data;
-  });
-
-
+      this.toys.map((item:any)=>{
+        item.type="toy";
+      });
+      this.test = this.data.push(...this.toys);
+      this.itemCount = this.test;
+    });
+    console.log(this.test);
   }
 
+  filterDataByType(e: any) {
+    this.inte = e.target.value;
+  }
+  
 
 }

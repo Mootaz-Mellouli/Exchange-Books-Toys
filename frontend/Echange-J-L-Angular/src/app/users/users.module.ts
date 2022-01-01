@@ -7,6 +7,7 @@ import { AddFormComponent } from '../add-form/add-form.component';
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from '../products/products.component';
 import { CardComponent } from '../card/card.component';
+import {SortByTypePipe} from '../pipes/sort-by-type.pipe'
 import { AddFormDonateComponent } from '../add-form-donate/add-form-donate.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,8 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddFormComponent,
     ProductsComponent,
     CardComponent,
-    AddFormDonateComponent
-
+    AddFormDonateComponent,
+    SortByTypePipe
   ],
   imports: [
     CommonModule,
