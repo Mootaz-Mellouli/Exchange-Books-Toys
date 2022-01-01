@@ -7,6 +7,6 @@ export class Jouet {
   description!: String;
   etat_jouet!: Etat;
   categorie_jouet!: CategorieJouet;
-
+  uploaded_by!: String;
 
 }

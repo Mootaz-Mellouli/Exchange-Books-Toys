@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class BookFormComponent implements OnInit {
 
   constructor() { }
+  stat = true;
 
-  ngOnInit(): void {
+  ngOnInit (): void {
+    if(localStorage.getItem("status")=="False"){
+      this.stat=false;
+      window.location.href="/"
+    }
   }
 
 }

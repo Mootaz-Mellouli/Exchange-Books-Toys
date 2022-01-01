@@ -16,11 +16,14 @@ export class NavbarComponent implements OnInit {
     
     if(this.stat=="True"){
       this.dataUser = JSON.parse(localStorage.getItem("userData") || "");
+      console.log(this.dataUser);
+      
     }
     else {
       this.dataUser = [];
     }
     this.dataUser.map((item: any) => {
+      
       this.user = item.username
     })
   }
@@ -30,18 +33,5 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem("status", "False");
     localStorage.removeItem("userData");
     window.location.reload();
-  }
-
-
-  
-
-  // userData = JSON.stringify(this.data);
-  displayStyle = "none";
-
-  openPopup() {
-    this.displayStyle = "block";
-  }
-  closePopup() {
-    this.displayStyle = "none";
   }
 }

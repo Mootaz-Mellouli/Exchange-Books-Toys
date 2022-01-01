@@ -13,10 +13,20 @@
         </div> <!-- col.// -->
         <aside class="col-sm-3 content">
             <div class="info-aside">
+                    <p>Uploaded By: {{book.uploaded_by}}</p>
                     <a href="#" role="button" class="btn btn-primary"> Receive </a>
                     <a href="#" role="button" class="btn btn-danger"><i class="fa fa-heart"></i>
                         <span class="text">Add to wishlist</span>
                     </a>
+                    <div class="dropdown" *ngIf="uploader;">
+                        <a href="#" role="button" class="btn btn dropbtn">Operations</a>
+                        <div class="dropdown-content">
+                          <a href="#">Delete</a>
+                          <a href="#">Edit</a>
+                        </div>
+                    </div>
+
+
             </div> <!-- info-aside.// -->
         </aside> <!-- col.// -->
     </div> <!-- row.// -->
@@ -38,11 +48,21 @@
       </div> <!-- col.// -->
       <aside class="col-sm-3 content">
           <div class="info-aside">
-                  <a href="#" role="button" class="btn btn-primary"> Receive </a>
-                  <a href="#" role="button" class="btn btn-danger"><i class="fa fa-heart"></i>
-                      <span class="text">Add to wishlist</span>
-                  </a>
+                <p>Uploaded By: {{toy.uploaded_by}}</p>
+                <a href="#" role="button" class="btn btn-primary"> Receive </a>
+                <a href="#" role="button" class="btn btn-danger"><i class="fa fa-heart"></i>
+                    <span class="text">Add to wishlist</span>
+                </a>
           </div> <!-- info-aside.// -->
+          <div class="dropdown" *ngIf="uploader;">
+            <a href="#" role="button" class="btn btn dropbtn">Operations</a>
+            <div class="dropdown-content">
+              <a href="#">Delete</a>
+              <a href="#">Edit</a>
+            </div>
+        </div>
       </aside> <!-- col.// -->
-  </div> <!-- row.// -->
+      
+  </div>
+ <!-- row.// -->
 </article> <!-- card-product .// -->

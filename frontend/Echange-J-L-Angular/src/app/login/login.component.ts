@@ -15,10 +15,9 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(){
-    const navigationDetails: string[] = ['/'];
     this.service.fetchTgtUrl(this.login.value.username, this.login.value.password).then(res=> {
       if(res.status === 200){
-        this.service.getUsers().subscribe(res=> {localStorage.setItem('userData', JSON.stringify(res))});
+        this.service.getUsers().subscribe(res=> {localStorage.setItem('userData', JSON.stringify(res));});
         localStorage.setItem('status', "True")
         window.location.href ="/";
       } else if(res.status === 401){
