@@ -12,7 +12,7 @@ export class UserService {
   private addBookAPI = 'http://localhost:8080/livre/add';
   private addToyAPI= 'http://localhost:8080/jouet/add';
   private toyAPI= 'http://localhost:8080/jouet';
-private expressapi='http://localhost:3000/api/jouets'
+private expressapi='http://localhost:3000/api/jouets/'
   private getAllToy='http://localhost:8080/jouet/';
   private getAllBook='http://localhost:8080/livre/';
   //Fake API

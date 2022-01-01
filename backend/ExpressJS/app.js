@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Jouet = require('./models/Jouet');
+const jouetsRouter = require('./routes/jouets'); 
 
 mongoose.connect('mongodb://localhost:27017/exchange',
   { useNewUrlParser: true,
@@ -17,10 +17,8 @@ app.use((req, res, next) => {
     next();
   });
 
-  app.get('/api/jouets', (req, res) => {
-    Jouet.find()
-      .then(jouets => res.status(200).json(jouets))
-      .catch(err => res.status(400).json({error: err.message}));
-    });
+  app.use('/api/jouets',jouetsRouter);
+
+  
 
 module.exports = app;
