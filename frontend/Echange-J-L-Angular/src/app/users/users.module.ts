@@ -10,6 +10,7 @@ import { CardComponent } from '../card/card.component';
 import {SortByTypePipe} from '../pipes/sort-by-type.pipe'
 import { AddFormDonateComponent } from '../add-form-donate/add-form-donate.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsDonationComponent } from '../products-donation/products-donation.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     CardComponent,
     AddFormDonateComponent,
-    SortByTypePipe
+    SortByTypePipe,
+    ProductsDonationComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,152 @@
+<!-- ========================= SECTION PAGETOP ========================= -->
+<section class="section-pagetop bg">
+  <div class="container">
+      <h2 class="title-page">Books and Toys For Donation</h2>
+  </div> <!-- container //  -->
+  </section>
+  <!-- ========================= SECTION CONTENT ========================= -->
+  <section class="section-content padding-y">
+  <div class="container">
+
+  <div class="row">
+      <aside class="col-md-3">
+
+  <div class="card">
+      <article class="filter-group">
+          <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true">
+                  <i class="icon-control fa fa-chevron-down"></i>
+                  <h6 class="title">Product type</h6>
+              </a>
+          </header>
+          <div class="filter-content collapse show" id="collapse_1">
+              <div class="card-body">
+                  <form class="pb-3">
+                    <div class="form-check">
+
+                      <input checked class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (click)="bookSelected()" >
+                      <label class="form-check-label" for="flexRadioDefault1" >
+                        Book
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  (click)="toySelected()" >
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Toy
+                      </label>
+                    </div>
+                  </form>
+
+              </div> <!-- card-body.// -->
+          </div>
+      </article> <!-- filter-group  .// -->
+      <article class="filter-group">
+          <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true">
+                  <i class="icon-control fa fa-chevron-down"></i>
+                  <h6 class="title">Book</h6>
+              </a>
+          </header>
+          <div class="filter-content collapse show" id="collapse_2">
+              <div class="card-body">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" checked="" class="custom-control-input">
+                    <div class="custom-control-label">Academic
+                        <b class="badge badge-pill badge-light float-right">120</b> </div>
+                  </label><br>
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" checked="" class="custom-control-input">
+                    <div class="custom-control-label">Novel
+                        <b class="badge badge-pill badge-light float-right">15</b>  </div>
+                  </label><br>
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" checked="" class="custom-control-input">
+                    <div class="custom-control-label">Scientific
+                        <b class="badge badge-pill badge-light float-right">35</b> </div>
+                  </label><br>
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" checked="" class="custom-control-input">
+                    <div class="custom-control-label">Dictionary And Language
+                        <b class="badge badge-pill badge-light float-right">89</b> </div>
+                  </label><br>
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <div class="custom-control-label">Art, Music And Cinema
+                        <b class="badge badge-pill badge-light float-right">30</b></div>
+                  </label><br>
+                  <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input">
+                      <div class="custom-control-label">History
+                          <b class="badge badge-pill badge-light float-right">30</b>  </div>
+                    </label>
+              </div> <!-- card-body.// -->
+          </div>
+      </article> <!-- filter-group .// -->
+      </div> <!-- card.// -->
+
+      </aside> <!-- col.// -->
+      <main class="col-md-9">
+      <br>
+      <!----- ------------- -------------------  Displaying Toy-->
+      <article class="card card-product-list" >
+        <div  *ngIf="ToySelection; else book">
+
+        <div class="row no-gutters" *ngFor="let toy of toys" >
+          <div class="row no-gutters" *ngIf="toy.donate">
+            <aside class="col-md-3">
+                <a href="#" class="img-wrap">
+                    <img src="../../assets/toy1.jpg" alt="image">
+                </a>
+            </aside> <!-- col.// -->
+            <div class="col-md-6">
+                <div class="info-main"  >
+                   <h3 class="title">  Title:{{toy.titre}} </h3>
+                    <p> Description: {{toy.description}}</p>
+                   <p>Shape: {{toy.etat_jouet}}</p>
+                    <p> Category: {{toy.categorie_jouet}}</p>
+                </div> <!-- info-main.// -->
+            </div> <!-- col.// -->
+
+            <aside class="col-sm-3 content">
+                <div class="info-aside">
+                        <a href="#" role="button" class="btn btn-primary"> Receive </a>
+                </div> <!-- info-aside.// -->
+            </aside> <!-- col.// -->
+            <hr>
+        </div>
+      </div>
+      </div>
+
+
+      <ng-template #book>
+        <div class="row no-gutters" *ngFor="let book of books">
+          <div class="row no-gutters" *ngIf="book.donate">
+          <aside class="col-md-3">
+              <a href="#" class="img-wrap">
+                  <img src="../../assets/books.jpg" alt="image">
+              </a>
+          </aside> <!-- col.// -->
+          <div class="col-md-6">
+              <div class="info-main" >
+                  <h3 class="title">Book Title: {{book.titre}} </h3>
+                  <p>Book Author: {{book.auteur}}</p>
+                  <p>Book Publishing House: {{book.maison_edition}}</p>
+                  <p>Book Shape: {{book.etat_livre}}</p>
+                  <p>Book Category: {{book.categorie_livre}}</p>
+              </div> <!-- info-main.// -->
+          </div> <!-- col.// -->
+          <aside class="col-sm-3 content">
+              <div class="info-aside">
+                      <a href="#" role="button" class="btn btn-primary"> Receive </a>
+              </div> <!-- info-aside.// -->
+          </aside> <!-- col.// -->
+          <hr>
+        </div>
+      </div>
+      </ng-template> <!-- row.// -->
+      </article>
+       <!-- card-product .// -->
+      </main> <!-- col.// -->
+  </div>
+  </div> <!-- container .//  -->
+</section>

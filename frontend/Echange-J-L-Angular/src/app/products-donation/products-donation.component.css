@@ -1,0 +1,34 @@
+@import "../../assets/fontawesome-all.css";
+.section-pagetop {
+  margin: 1.2rem;
+}
+.card {
+  min-height: 100%;
+}
+.card-body .custom-checkbox {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+@import "../../assets/fontawesome-all.css";
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-product-list {
+  padding: 1rem;
+}
+.content .info-aside > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+.title {
+  letter-spacing: 1px;
+}
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+}

@@ -18,5 +18,6 @@ public class Livre {
     private Etat etat_livre ;
     private CategorieLivre categorie_livre;
     private String image_livre;
+    private Boolean donate ;
 
 }
