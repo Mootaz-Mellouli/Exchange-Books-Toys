@@ -23,6 +23,12 @@
   <!-------->
 
   <div class="right-container">
+    <div class="alert alert-success" *ngIf="post=='success'" role="alert">
+      Product Successfully Uploaded! 
+    </div>
+    <div class="alert alert-danger d-flex justify-content-center" style="height: 3rem;" *ngIf="post=='failed'" role="alert">
+        Upload Failed! 
+    </div>
     <form (ngSubmit)="onSubmit()" #f="ngForm" >
     <header>
 

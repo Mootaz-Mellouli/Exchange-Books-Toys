@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { AddFormComponent } from '../add-form/add-form.component';
@@ -11,23 +11,24 @@ import {SortByTypePipe} from '../pipes/sort-by-type.pipe'
 import { AddFormDonateComponent } from '../add-form-donate/add-form-donate.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsDonationComponent } from '../products-donation/products-donation.component';
-
-
+import { BookFormComponent } from '../book-form/book-form.component';
 @NgModule({
   declarations: [
     UsersComponent,
     AddFormComponent,
+    BookFormComponent,
     ProductsComponent,
     CardComponent,
     AddFormDonateComponent,
     SortByTypePipe,
-    ProductsDonationComponent
+    ProductsDonationComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     UsersRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class UsersModule { }

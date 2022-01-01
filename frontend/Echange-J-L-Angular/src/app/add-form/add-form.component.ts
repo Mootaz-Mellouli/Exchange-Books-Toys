@@ -25,6 +25,7 @@ export class AddFormComponent implements OnInit {
   stat = true;
   data = [];
   uploaded = "";
+  post = "";
   ngOnInit (): void {
     if(localStorage.getItem("status")=="False"){
       this.stat=false;
@@ -76,15 +77,10 @@ export class AddFormComponent implements OnInit {
 
   saveBook(){
     this.userService.addBook(this.livre)
-                    .subscribe(livre=> {console.log(livre);
-
-                    });
-  }
+                    .subscribe(livre=> {this.post="success"}, err=>{this.post="failed"})};
   saveToy(){
     this.userService.addToy(this.jouet)
-                    .subscribe(jouet=> {console.log(jouet);
-
-                    });
-  }
+                    .subscribe(jouet=> {this.post="success"}, err=>{this.post="failed"})};
+  
 
 }

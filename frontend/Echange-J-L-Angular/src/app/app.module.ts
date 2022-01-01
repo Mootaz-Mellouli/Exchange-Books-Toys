@@ -9,9 +9,6 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +23,6 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

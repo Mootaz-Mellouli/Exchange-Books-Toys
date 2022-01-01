@@ -6,6 +6,9 @@
 				<div class="contact">
 					<form #loginform="ngForm" (ngSubmit)="loginUser()">
 						<h3>SIGN IN</h3>
+						<div class="alert alert-danger" *ngIf="loginStat=='failed'" role="alert">
+							Wrong Credentials
+						</div>
 						<input type="text" placeholder="USERNAME" name="username" ngModel>
 						<input type="password" placeholder="PASSWORD" name="password" ngModel>
 						<button type="submit" class="submit">LOGIN</button>

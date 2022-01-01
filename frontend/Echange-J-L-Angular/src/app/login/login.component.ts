@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('loginform', { static: false }) login!: NgForm;
   constructor(private service: AuthentificationService) { }
   data = [];
+  loginStat = "";
   ngOnInit(): void {
 
   }
@@ -17,11 +18,12 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this.service.fetchTgtUrl(this.login.value.username, this.login.value.password).then(res=> {
       if(res.status === 200){
-        this.service.getUsers().subscribe(res=> {localStorage.setItem('userData', JSON.stringify(res));});
+        this.service.getUserByUsername(this.login.value.username).subscribe(res=> {localStorage.setItem('userData', JSON.stringify(res));});
         localStorage.setItem('status', "True")
         window.location.href ="/";
       } else if(res.status === 401){
-        localStorage.setItem('status', "False")
+        localStorage.setItem('status', "False");
+        this.loginStat = "failed"
       }
     });
 
