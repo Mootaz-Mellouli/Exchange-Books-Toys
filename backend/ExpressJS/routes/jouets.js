@@ -10,4 +10,13 @@ router.get('/', (req, res) => {
       .catch(err => res.status(400).json({error: err.message}));
     });
 
+    router.post('/save', (req, res, next) => {
+        const jouet = new Jouet({
+          ...req.body
+        });
+        jouet.save()
+          .then(() => res.status(201).json({ message: 'Toy created  !'}))
+          .catch(error => res.status(400).json({ error }));
+      });
+
 module.exports= router; 
