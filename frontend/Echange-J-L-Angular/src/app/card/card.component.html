@@ -4,13 +4,16 @@
             <a href="#" class="img-wrap">
                 <img src="../../assets/books.jpg" alt="image">
             </a>
-        </aside> <!-- col.// -->
+        </aside>
+        <!-- col.// -->
         <div class="col-md-6">
             <div class="info-main">
                 <h3 class="title"> {{book.titre}} </h3>
                 <p>{{book.auteur}}</p>
-            </div> <!-- info-main.// -->
-        </div> <!-- col.// -->
+            </div>
+            <!-- info-main.// -->
+        </div>
+        <!-- col.// -->
         <aside class="col-sm-3 content">
             <div class="info-aside">
                 <p>Uploaded By: {{book.uploaded_by}}</p>
@@ -25,27 +28,34 @@
                         <a (click)="updateBook(book.id);">Edit</a>
                     </div>
                 </div>
-            </div> <!-- info-aside.// -->
-        </aside> <!-- col.// -->
-    </div> <!-- row.// -->
-</article> <!-- card-product .// -->
+            </div>
+            <!-- info-aside.// -->
+        </aside>
+        <!-- col.// -->
+    </div>
+    <!-- row.// -->
+</article>
+<!-- card-product .// -->
 <br>
 <!----- ------------- -------------------  Displaying Toy-->
 <article class="card card-product-list" *ngIf="type=='toy';">
-  <div class="row no-gutters">
-      <aside class="col-md-3">
-          <a href="#" class="img-wrap">
-              <img src="../../assets/toy1.jpg" alt="image">
-          </a>
-      </aside> <!-- col.// -->
-      <div class="col-md-6">
-          <div class="info-main">
-              <h3 class="title"> {{toy.titre}} </h3>
-              <p>{{toy.description}}</p>
-          </div> <!-- info-main.// -->
-      </div> <!-- col.// -->
-      <aside class="col-sm-3 content">
-          <div class="info-aside">
+    <div class="row no-gutters">
+        <aside class="col-md-3">
+            <a href="#" class="img-wrap">
+                <img src="../../assets/toy1.jpg" alt="image">
+            </a>
+        </aside>
+        <!-- col.// -->
+        <div class="col-md-6">
+            <div class="info-main">
+                <h3 class="title"> {{toy.titre}} </h3>
+                <p>{{toy.description}}</p>
+            </div>
+            <!-- info-main.// -->
+        </div>
+        <!-- col.// -->
+        <aside class="col-sm-3 content">
+            <div class="info-aside">
                 <p>Uploaded By: {{toy.uploaded_by}}</p>
                 <a href="#" role="button" class="btn btn-primary"> Receive </a>
                 <a href="#" role="button" class="btn btn-danger"><i class="fa fa-heart"></i>
@@ -58,9 +68,12 @@
                         <a (click)="updateToy(toy.id);">Edit</a>
                     </div>
                 </div>
-          </div> <!-- info-aside.// -->
-      </aside> <!-- col.// -->
-      
-  </div>
- <!-- row.// -->
-</article> <!-- card-product .// -->
+            </div>
+            <!-- info-aside.// -->
+        </aside>
+        <!-- col.// -->
+
+    </div>
+    <!-- row.// -->
+</article>
+<!-- card-product .// -->
