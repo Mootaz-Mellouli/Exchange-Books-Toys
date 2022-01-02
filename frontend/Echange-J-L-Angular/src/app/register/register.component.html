@@ -12,6 +12,14 @@
                     <input type="text" placeholder="USERNAME" name="username" ngModel>
                     <input type="password" placeholder="PASSWORD" name="password" ngModel>
                     <input type="password" placeholder="CONFIRM PASSWORD" name="cpassword" ngModel>
+                    <div class="form-group row.sm flex-column d-flex">
+                        <select class="select" aria-label="Default select example" name="role" ngModel>
+                            <option value="" disabled selected>Select your Role</option>
+                            <option value="User">User</option>
+                            <option value="Association">Association</option>
+                            <option value="Maison_de_retrait">Retirement home</option>
+                        </select>
+                    </div>
                     <button type="submit" class="submit">Register</button>
                 </form>
             </div>
