@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/add_book_donate_screen.dart';
 import 'package:mobile/add_toy_donate_screen.dart';
 import 'package:mobile/add_toy_screen.dart';
-import './add_book_screen.dart';
+import 'package:mobile/book_form.dart';
 import 'appbar.dart';
 import 'products.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter App',
       home: MyHomePage(),
       routes: {
-        '/add_book': (BuildContext context) => AddBook(),
+        '/add_book': (BuildContext context) => AddDataWidget(),
         '/add_toy': (BuildContext context) => AddToy(),
         '/home': (BuildContext context) => MyHomePage(),
         '/add_book_donate': (BuildContext context) => AddBookDonate(),
