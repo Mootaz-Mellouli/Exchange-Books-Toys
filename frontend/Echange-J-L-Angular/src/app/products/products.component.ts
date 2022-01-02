@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit {
   public toys: any = [];
   public data: any = [];
   public test: any;
-  public itemCount: Number = 0;
+  public itemCount: number = 0;
   public inte: any = "";
   
   constructor(
@@ -27,9 +27,11 @@ export class ProductsComponent implements OnInit {
         this.BooksList = res;
         this.BooksList.map((item:any)=>{
           item.type="book";
+          if(item.donate == false) this.itemCount += 1;
+        
         });
         this.test = this.data.push(...this.BooksList);
-        this.itemCount = this.test;
+
       }
     );
 
@@ -37,9 +39,10 @@ export class ProductsComponent implements OnInit {
       this.toys = data;
       this.toys.map((item:any)=>{
         item.type="toy";
+        if(item.donate == false) this.itemCount += 1;
       });
       this.test = this.data.push(...this.toys);
-      this.itemCount = this.test;
+      //this.itemCount = this.test;
     });
     console.log(this.test);
   }
