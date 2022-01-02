@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Wish } from '../../models/Wish';
+import { NavigationExtras, Router } from '@angular/router';
 import { RetirementService } from '../../services/retirement.service';
 
 declare var $: any;
@@ -14,7 +15,7 @@ export class WishCardComponent implements OnInit {
   wishUploader = false;
   data:any= {};
 
-  constructor(private retirementService:RetirementService) { }
+  constructor(private retirementService:RetirementService,private router:Router) { }
 
   ngOnInit(): void {
     this.data = JSON.parse(localStorage.getItem("userData") || ""); 
@@ -26,4 +27,13 @@ deleteWish(id: any){
       console.log("Deleted, ID: "+id);
     }
   };
+
+  updateWish(id: any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "id"   : encodeURIComponent(id),
+      }
+  };
+    this.router.navigate([""], navigationExtras);
+  }
 }
