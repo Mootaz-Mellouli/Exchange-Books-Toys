@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/add_book_donate_screen.dart';
 import 'package:mobile/add_toy_donate_screen.dart';
 import 'package:mobile/add_toy_screen.dart';
+import 'package:mobile/add_wish_screen.dart';
 import './add_book_screen.dart';
 import 'appbar.dart';
 import 'products.dart';
@@ -20,6 +21,8 @@ class MyApp extends StatelessWidget {
         '/home': (BuildContext context) => MyHomePage(),
         '/add_book_donate': (BuildContext context) => AddBookDonate(),
         '/add_toy_donate': (BuildContext context) => AddToyDonate(),
+        '/add_wishlist': (BuildContext context) => AddWhishScreen(),
+
       },
     );
   }
@@ -228,6 +231,31 @@ class MyHomePage extends StatelessWidget {
                       textColor: Colors.purple,
                       onPressed: () {
                         Navigator.pushNamed(context, '/add_toy_donate');
+                      },
+                    ),
+                  ],
+                ),
+                elevation: 5,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              width: double.infinity,
+              child: Card(
+                color: Colors.blueAccent,
+                child: Column(
+                  children: <Widget>[
+                    const Text(("Wish List"),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                    const Text(("Create Your Whish List "),
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.normal)),
+                    FlatButton(
+                      child: Text('Create'),
+                      textColor: Colors.purple,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/add_wishlist');
                       },
                     ),
                   ],
