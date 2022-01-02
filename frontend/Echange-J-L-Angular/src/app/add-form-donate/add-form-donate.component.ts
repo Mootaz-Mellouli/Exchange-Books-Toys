@@ -15,6 +15,7 @@ export class AddFormDonateComponent implements OnInit {
   @ViewChild('f', { static: false }) addForm!: NgForm;
   BookSelection = false ;
   ToySelection = true ;
+  submitted = false ;
 
 
   bookSelected(){
@@ -63,17 +64,19 @@ export class AddFormDonateComponent implements OnInit {
     this.livre.donate=true;
     console.log(this.addForm);
     console.log(this.uploaded);
-    
+
     if(this.livre.titre!=null)
     {
       this.saveBook();
+      this.submitted=true;
 
     }
     else
     {
       this.saveToy();
-
+      this.submitted=true;
     }
+    this.addForm.reset();
   }
 
   saveBook(){
