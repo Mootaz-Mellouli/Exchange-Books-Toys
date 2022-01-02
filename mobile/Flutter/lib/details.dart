@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile/Models/data.dart';
 import 'package:mobile/Models/jouet.dart';
+import 'package:mobile/edit_toy.dart';
 import 'Models/livre.dart';
 import 'appbar.dart';
 
@@ -32,9 +33,13 @@ class _ProductDetails extends State<Details> {
         return livre;
     }
   }
-
+  String selectedID = "";
+  String types = "";
   @override
   Widget build(BuildContext context) {
+    var route = MaterialPageRoute(
+      builder: (BuildContext context) => EditToy(value: selectedID),
+    );
     return Scaffold(
       appBar: MainAppBar(
         title: const Text(
@@ -99,7 +104,9 @@ class _ProductDetails extends State<Details> {
                               margin: const EdgeInsets.fromLTRB(5, 60, 5, 20),
                               width: 300,
                               child: Image.asset("assets/Images/toy.jpg"),
-                            )
+                            ),
+                            ElevatedButton(onPressed: (){}, child: Text("Delete")),
+                            ElevatedButton(onPressed: (){selectedID = snapshot.data.id; Navigator.of(context).push(route);}, child: Text("Edit")),
                           ],
                         );
                       }
@@ -141,6 +148,8 @@ class _ProductDetails extends State<Details> {
                               width: 300,
                               child: Image.asset("assets/Images/books.jpg"),
                             ),
+                            ElevatedButton(onPressed: (){}, child: Text("Delete")),
+                            ElevatedButton(onPressed: (){}, child: Text("Edit")),
                           ],
                         );
                       } else {
