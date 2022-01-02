@@ -30,7 +30,7 @@ private expressapi='http://localhost:3000/api/jouets/'
 
   getAllToys()
   {
-    return this.http.get<Jouet[]>(this.expressapi);
+    return this.http.get<Jouet[]>(this.getAllToy);
   }
 
   getAllBooks()

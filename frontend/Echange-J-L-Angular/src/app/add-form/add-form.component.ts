@@ -61,6 +61,7 @@ export class AddFormComponent implements OnInit {
     this.saveToy();
     this.submitted=true;
     }
+    this.addForm.reset();
   }
 
   bookSelected(){
@@ -80,6 +81,6 @@ export class AddFormComponent implements OnInit {
   saveToy(){
     this.userService.addToy(this.jouet)
                     .subscribe(jouet=> {this.post="success"}, err=>{this.post="failed"})};
-  
+
 
 }
