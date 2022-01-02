@@ -3,15 +3,9 @@
     <section class="section-pagetop bg">
         <div class="container">
             <h2 class="title-page">Books and Toys</h2>
-
                 <nav>
-                <ol class="breadcrumb text-white">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Best category</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Great articles</li>
-                </ol>  
+                    <p class="breadcrumb-item active" aria-current="page">Exchange Products</p>
                 </nav>
-
         </div> <!-- container //  -->
         </section>
         <!-- ========================= SECTION INTRO END// ========================= -->
@@ -103,10 +97,10 @@
                     </div>
                 </header>                
                 <div *ngFor="let x of data | sortByType:inte: 'type'">
-                    <div *ngIf="x.type=='book';">
+                    <div *ngIf="x.type=='book' && x.donate==false;">
                         <app-card [book]="x"></app-card>
                     </div>
-                    <div *ngIf="x.type=='toy';">
+                    <div *ngIf="x.type=='toy' && x.donate==false;">
                         <app-card [toy]="x"></app-card>
                     </div>
                 </div>
