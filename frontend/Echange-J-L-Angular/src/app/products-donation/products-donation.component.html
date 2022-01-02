@@ -112,10 +112,10 @@
                         <a href="#" role="button" class="btn btn-primary"> Receive </a>
                 </div>
                 <div class="info-aside">
-                  <a href="#" role="button" class="btn btn-primary" (click)="updateToy(toy.id);"> Update </a>
-          </div>
+                  <a  role="button" class="btn btn-primary"  > Update </a>
+          </div> <!----routerLink="/users/update/{{ toy.id }}"--->
           <div class="info-aside">
-            <a href="#" role="button" class="btn btn-primary" (click)="deleteToy(toy.id);"> Delete </a>
+            <a  role="button" class="btn btn-primary" (click)="deleteToy(toy.id);"> Delete </a>
     </div> <!-- info-aside.// -->
             </aside> <!-- col.// -->
             <hr>
@@ -145,6 +145,9 @@
               <div class="info-aside">
                       <a href="#" role="button" class="btn btn-primary"> Receive </a>
               </div>
+              <div class="info-aside">
+                <a  role="button" class="btn btn-primary" (click)="deleteBook(book.id);"> Delete </a>
+        </div>
                <!-- info-aside.// -->
           </aside> <!-- col.// -->
           <hr>

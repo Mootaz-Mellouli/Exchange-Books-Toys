@@ -40,22 +40,27 @@ export class ProductsDonationComponent implements OnInit {
     this.BookSelection = false ;
   }
 
-  updateToy(id: any){
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-          "id"   : encodeURIComponent(id),
-      }
-  };
-    this.router.navigate(["/users/editToy"], navigationExtras);
-  }
+
 
   deleteToy(id: any){
     let title = "";
-    this.assosciationService.getToy(id).subscribe((toy:any)=>{
+    this.userService.getToyByID(id).subscribe((toy:any)=>{
       title = toy.titre;
       console.log(title);
       if(confirm("Are you sure to delete: "+ title+"?")){
-        this.assosciationService.deleteToy(id).subscribe(res => window.location.reload());
+        this.userService.deleteToy(id).subscribe(res => window.location.reload());
+        console.log("Deleted, ID: "+id);
+      }
+    });
+  }
+
+  deleteBook(id: any){
+    let title = "";
+    this.userService.getBookByID(id).subscribe((book:any)=>{
+      title = book.titre;
+      console.log(title);
+      if(confirm("Are you sure to delete: "+ title+"?")){
+        this.userService.deleteBook(id).subscribe(res => window.location.reload());
         console.log("Deleted, ID: "+id);
       }
     });
