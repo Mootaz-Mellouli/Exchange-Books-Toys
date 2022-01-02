@@ -12,6 +12,10 @@ import { AddFormDonateComponent } from '../add-form-donate/add-form-donate.compo
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsDonationComponent } from '../products-donation/products-donation.component';
 import { BookFormComponent } from '../book-form/book-form.component';
+import { RetirementComponent } from './retirement/retirement.component';
+import { WishFormComponent } from './wish-form/wish-form.component';
+import { WishCardComponent } from './wish-card/wish-card.component';
+import { WishListComponent } from './wish-list/wish-list.component';
 @NgModule({
   declarations: [
     UsersComponent,
@@ -22,6 +26,10 @@ import { BookFormComponent } from '../book-form/book-form.component';
     AddFormDonateComponent,
     SortByTypePipe,
     ProductsDonationComponent,
+    RetirementComponent,
+    WishFormComponent,
+    WishCardComponent,
+    WishListComponent,
   ],
   imports: [
     CommonModule,

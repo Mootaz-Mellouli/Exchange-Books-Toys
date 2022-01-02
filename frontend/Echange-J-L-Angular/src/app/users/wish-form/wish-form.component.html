@@ -1,0 +1,50 @@
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h2>Start Searching!</h2>
+            <p class="blue-text">Fill The Form Below</p>
+
+            <div class="right-container">
+                <div class="alert alert-success" *ngIf="post=='success'" role="alert">
+                    Product Successfully Uploaded!
+                </div>
+                <div class="alert alert-danger d-flex justify-content-center" style="height: 3rem;" *ngIf="post=='failed'" role="alert">
+                    Upload Failed!
+                </div>
+            </div>
+            <div class="card">
+                <form class="form-card" (ngSubmit)="onSubmit()" #f="ngForm">
+                    <!--  -->
+
+                    <div class="row text-left">
+                        <div class="form-group col-lg flex-column d-flex"> <label class="form-control-label px-3">Categorie<span class="text-danger"> *</span></label>
+                            <select aria-label="Default select example" id="CategoryWish" ngModel name="CategoryWish" #category="ngModel">
+                                <option value="" disabled selected>Select your wish's category</option>
+                                <option value="1">Book</option>
+                                <option value="2">Toy</option>
+                            </select>
+                            <span class="help-block" *ngIf="!category.valid && category.touched">Category is required</span>
+                        </div>
+                    </div>
+
+                    <div class="row text-left">
+                        <div class="form-group col-lg flex-column d-flex">
+                            <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span>
+                            </label><input type="text" id="QuantityWish" placeholder="Enter Your Wish Quantity" ngModel name="QuantityWish" #quantitywish="ngModel"> </div>
+                        <span class="help-block" *ngIf="!quantitywish.valid && quantitywish.touched">Quantity is required</span>
+                    </div>
+
+                    <div class="row text-left">
+                        <div class="form-group col-lg flex-column d-flex"> <label class="form-control-label px-3">Description<span class="text-danger"> *</span></label>
+                            <textarea class="form-control rounded-0" id="DescriptionWish" rows="3" placeholder="Small Description About the Article You Need" ngModel id="DescriptionWish" name="DescriptionWish" #descriptionwish="ngModel"></textarea> </div>
+                        <span class="help-block" *ngIf="!descriptionwish.valid && descriptionwish.touched">Category is required</span>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" [disabled]="!f.valid">Add to wishlist</button> </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
