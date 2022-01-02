@@ -45,11 +45,13 @@ export class AddFormComponent implements OnInit {
     this.livre.categorie_livre=this.addForm.value.CategoryBook ;
     this.livre.etat_livre=this.addForm.value.ShapeBook ;
     this.livre.uploaded_by=this.uploaded;
+    this.livre.donate=false;
     this.jouet.titre=this.addForm.value.Name;
     this.jouet.description=this.addForm.value.Description ;
     this.jouet.categorie_jouet=this.addForm.value.CategoryToy;
     this.jouet.etat_jouet=this.addForm.value.ShapeToy;
     this.jouet.uploaded_by=this.uploaded;
+    this.jouet.donate=false;
     console.log(this.addForm);
     if(this.livre.titre!=null)
     {
