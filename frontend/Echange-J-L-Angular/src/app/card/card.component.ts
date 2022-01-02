@@ -55,9 +55,32 @@ export class CardComponent implements OnInit {
     let navigationExtras: NavigationExtras = {
       queryParams: {
           "id"   : encodeURIComponent(id),
+          "type":"toy"
       }
   };
     this.router.navigate(["/users/editToy"], navigationExtras);
   }
+  deleteBook(id: any){
+    let title = "";
+    console.log(id);
+    
+    this.assosciationService.getBook(id).subscribe((book:any)=>{
+      title = book.titre;
+      console.log(title);      
+      if(confirm("Are you sure to delete: "+ title+"?")){
+        this.assosciationService.deleteBook(id).subscribe(res => window.location.reload());
+        console.log("Deleted, ID: "+id);
+      }
+    });
+  }
 
+  updateBook(id: any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "id"   : encodeURIComponent(id),
+          "type":"book"
+      }
+  };
+    this.router.navigate(["/users/editToy"], navigationExtras);
+  }
 }

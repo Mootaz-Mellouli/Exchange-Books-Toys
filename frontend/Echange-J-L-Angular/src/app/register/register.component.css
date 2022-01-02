@@ -70,7 +70,8 @@ img {
   border-radius: 8px;
   display: block;
   margin: auto;
-  margin-top: 120px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   background: #583672;
   color: #fff;
   font-weight: bold;
@@ -122,4 +123,12 @@ img {
   width: 28px;
   padding-right: 7px;
   margin-top: -3px;
+}
+
+.select {
+  padding-top: 0.25rem;
+  padding-left: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.527);
+  border-radius: 0.25rem;
+  text-align: left;
 }

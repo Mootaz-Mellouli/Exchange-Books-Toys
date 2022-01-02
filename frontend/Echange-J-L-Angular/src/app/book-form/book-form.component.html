@@ -1,8 +1,8 @@
 <div class="container-fluid px-1 py-5 mx-auto" *ngIf="stat;">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3>Updating: {{toy.titre}}</h3>
-            <p class="blue-text">Fill In The Form Below With The Necessary Toy Details</p>
+            <h3>Updating: {{type=='toy'?toy.titre:book.titre}}</h3>
+            <p class="blue-text">Fill In The Form Below With The Necessary {{type=='toy'?'Toy':'Book'}} Details</p>
             <div class="alert alert-success" *ngIf="updateState=='success'" role="alert">
                 Toy succesfully updated! 
             </div>
@@ -13,33 +13,55 @@
                 <!-- <h5 class="text-center mb-4">Powering world-class companies</h5> -->
                 <form class="form-card" (ngSubmit)="onSubmit($event)" #f="ngForm">
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Title<span class="text-danger"> *</span></label> <input type="text" ngModel="{{toy.titre}}" id="fname" name="titre" placeholder="Enter book title"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Toy ID<span class="text-danger"> *</span></label> <input type="text" ngModel="{{toy.id}}" id="fname" name="id" disabled placeholder=""> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Title<span class="text-danger"> *</span></label> <input type="text" ngModel="{{type == 'book'?book.titre:toy.titre}}" id="fname" name="titre" placeholder=""> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Uploaded By<span class="text-danger"> *</span></label> <input type="text"  ngModel="{{type == 'book'?book.uploaded_by:toy.uploaded_by}}" id="fname" name="uploaded_by" placeholder=""> </div>
+                    </div>
+                    <div class="row justify-content-between text-left" *ngIf="type=='book'">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Author<span class="text-danger"> *</span></label> <input type="text" ngModel="{{book.auteur}}" id="fname" name="auteur" placeholder=""> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Publisher<span class="text-danger"> *</span></label> <input type="text" name="maison_edition" ngModel="{{book.maison_edition}}" id="fname" placeholder=""> </div>
                     </div>
 
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">shape<span class="text-danger"> *</span></label>                             
-                            <select required aria-label="Default select example" name="etat" ngModel="{{toy.etat_jouet}}">
-                                <option value="" disabled selected>Select your Toy's Shape</option>
-                                <option value="Society">Bad</option>
-                                <option value="Educative">Acceptable</option>
-                                <option value="Awkening">Good</option>
-                                <option value="Puzzle">New</option>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Shape<span class="text-danger"> *</span></label>                             
+                            <select required aria-label="Default select example" name="etat"  ngModel="{{type == 'book'?book.etat_livre:toy.etat_jouet}}">
+                                <option value="" disabled selected>Select your {{type == 'book'?"Book":"Toys"}}'s Shape</option>
+                                <option value="Bad">Bad</option>
+                                <option value="Acceptable">Acceptable</option>
+                                <option value="Good">Good</option>
+                                <option value="New">New</option>
                             </select>
                         </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Categorie<span class="text-danger"> *</span></label> 
-                            <select aria-label="Default select example" name="categorie" ngModel="{{toy.categorie_jouet}}">
+                            <select *ngIf="type == 'toy'" aria-label="Default select example" name="categorie" ngModel="{{toy.categorie_jouet}}">
                                 <option disabled>Select your Toys's Category</option>
-                                <option value="Academic">Society</option>
-                                <option value="Novel">Educative</option>
-                                <option value="Scientific">Awkening</option>
-                                <option value="Dictionary">Puzzle</option>
-                                <option value="Art">Exterior</option>
-                                <option value="History">Imitation</option>
+                                <option value="Society">Society</option>
+                                <option value="Educative">Educative</option>
+                                <option value="Awkening">Awkening</option>
+                                <option value="Puzzle">Puzzle</option>
+                                <option value="Exterior">Exterior</option>
+                                <option value="Imitation">Imitation</option>
+                            </select>
+                            <select *ngIf="type == 'book'" aria-label="Default select example" name="categorie" ngModel="{{book.categorie_livre}}">
+                                <option disabled>Select your Books's Category</option>
+                                <option value="Academic">Academic</option>
+                                <option value="Novel">Novel</option>
+                                <option value="Scientific">Scientific</option>
+                                <option value="Dictionary">Dictionary</option>
+                                <option value="Art">Art</option>
+                                <option value="History">History</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Product for<span class="text-danger"> *</span></label> 
+                            <select aria-label="Default select example" name="donate" ngModel="{{type == 'book' && book.donate?'Donate':'Exchange'}}">
+                                <option disabled>Select your Books's Category</option>
+                                <option value="Donate">Donate</option>
+                                <option value="Exchange">Exchange</option>
                             </select>
                         </div>
+
                     </div>
-                    <div class="row text-left">
+                    <div class="row text-left" *ngIf="type=='toy';">
                         <div class="form-group col-lg flex-column d-flex"> <label class="form-control-label px-3">Description<span class="text-danger"> *</span></label> <textarea name="description" ngModel="{{toy.description}}" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"placeholder="Small Description About the Book(Personal experience, Directed for which type of Readers)"></textarea>  </div>
                     </div>
                     <div class="row justify-content-end">

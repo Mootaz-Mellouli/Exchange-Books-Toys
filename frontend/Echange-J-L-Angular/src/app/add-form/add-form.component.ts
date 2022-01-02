@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { Livre } from '../models/Livre';
 import { Jouet } from '../models/Jouet';
 
+
 @Component({
   selector: 'app-add-form',
   templateUrl: './add-form.component.html',
@@ -23,7 +24,7 @@ export class AddFormComponent implements OnInit {
 
   constructor(private userService: UserService) { }
   stat = true;
-  data = [];
+  data:any = {};
   uploaded = "";
   post = "";
   ngOnInit (): void {
@@ -33,9 +34,7 @@ export class AddFormComponent implements OnInit {
     }
     else {
       this.data = JSON.parse(localStorage.getItem("userData") || "");
-      this.data.map((item:any)=>{
-        this.uploaded = item.username;
-      });
+      this.uploaded = this.data.username;
     }
   }
 

@@ -21,8 +21,8 @@
                 <div class="dropdown" *ngIf="bookUploader;">
                     <a href="#" role="button" class="btn btn dropbtn">Operations</a>
                     <div class="dropdown-content">
-                        <a href="#">Delete</a>
-                        <a href="#">Edit</a>
+                        <a (click)="deleteBook(book.id);">Delete</a>
+                        <a (click)="updateBook(book.id);">Edit</a>
                     </div>
                 </div>
             </div> <!-- info-aside.// -->

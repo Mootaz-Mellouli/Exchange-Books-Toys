@@ -29,6 +29,7 @@ environment:
 dependencies:
   touchable_opacity: 1.2.0
   http:
+  select_form_field: "^1.0.0"
   flutter:
     sdk: flutter
 

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile/Models/data.dart';
 import 'package:mobile/Models/jouet.dart';
+import 'package:mobile/edit_toy.dart';
+import 'package:mobile/products.dart';
 import 'Models/livre.dart';
 import 'appbar.dart';
 
@@ -32,9 +34,53 @@ class _ProductDetails extends State<Details> {
         return livre;
     }
   }
-
+  deleteToy(id, titre) async {
+    var response = await http.delete((Uri.http("10.0.2.2:8080", '/jouet/'+id)));
+    print(id);
+    if(response.statusCode == 200){
+      return showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text("You have successfully delete the following toy: "),
+          content: Text(titre),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FetchAPI()));
+              },
+              child: Text("okay"),
+            ),
+          ],
+        ),
+      );
+    }
+    else {
+      return showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(""),
+          content: Text("Delete Failed"),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+              },
+              child: Text("okay"),
+            ),
+          ],
+        ),
+      );
+    }
+    return response.statusCode;
+  }
+  String selectedID = "";
+  String types = "";
   @override
   Widget build(BuildContext context) {
+    var route = MaterialPageRoute(
+      builder: (BuildContext context) => EditToy(value: selectedID),
+    );
     return Scaffold(
       appBar: MainAppBar(
         title: const Text(
@@ -99,7 +145,9 @@ class _ProductDetails extends State<Details> {
                               margin: const EdgeInsets.fromLTRB(5, 60, 5, 20),
                               width: 300,
                               child: Image.asset("assets/Images/toy.jpg"),
-                            )
+                            ),
+                            ElevatedButton(onPressed: (){deleteToy(snapshot.data.id, snapshot.data.titre);}, child: Text("Delete")),
+                            ElevatedButton(onPressed: (){selectedID = snapshot.data.id; Navigator.of(context).push(route);}, child: Text("Edit")),
                           ],
                         );
                       }
@@ -141,6 +189,8 @@ class _ProductDetails extends State<Details> {
                               width: 300,
                               child: Image.asset("assets/Images/books.jpg"),
                             ),
+                            ElevatedButton(onPressed: (){}, child: Text("Delete")),
+                            ElevatedButton(onPressed: (){}, child: Text("Edit")),
                           ],
                         );
                       } else {

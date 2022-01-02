@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Jouet } from '../models/Jouet';
+import { Livre } from '../models/Livre';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,18 @@ export class AssociationService {
 
   updateToy(id:any, toy:Jouet){
     return this.http.put(this.toyAPI + id, toy);
+  }
+
+  deleteBook(id:String){
+    return this.http.delete(this.bookAPI+id);
+  }
+
+  getBook(id:any){
+    return this.http.get(this.bookAPI + id);
+  }  
+
+  updateBook(id:any, toy:Livre){
+    return this.http.put(this.bookAPI + id, toy);
   }
 
   getAll(){

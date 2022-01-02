@@ -34,7 +34,6 @@ export class ProductsComponent implements OnInit {
     );
 
     this.userService.getAllToysREAL().subscribe(data =>{
-      console.log(data);
       this.toys = data;
       this.toys.map((item:any)=>{
         item.type="toy";
