@@ -6,7 +6,7 @@ import 'package:touchable_opacity/touchable_opacity.dart';
 
 
 
-import 'Models/backend_services.dart';
+import 'wishlist_service.dart';
 
 
 class AddWhishScreen extends StatefulWidget {
