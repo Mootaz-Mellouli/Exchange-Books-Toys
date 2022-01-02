@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Jouet } from '../models/Jouet';
 import { Livre } from '../models/Livre';
 import { UserService } from '../services/user.service';
+import { NavigationExtras, Router } from '@angular/router';
+import { AssociationService } from '../services/association.service';
+
 
 @Component({
   selector: 'app-products-donation',
@@ -15,7 +18,7 @@ export class ProductsDonationComponent implements OnInit {
   toy!:Jouet;
   BookSelection = true ;
   ToySelection = false ;
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router:Router,private assosciationService:AssociationService) {}
 
   ngOnInit(): void {
     this.userService.getAllToys().subscribe(data =>{
@@ -35,6 +38,27 @@ export class ProductsDonationComponent implements OnInit {
   toySelected(){
     this.ToySelection = true ;
     this.BookSelection = false ;
+  }
+
+  updateToy(id: any){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "id"   : encodeURIComponent(id),
+      }
+  };
+    this.router.navigate(["/users/editToy"], navigationExtras);
+  }
+
+  deleteToy(id: any){
+    let title = "";
+    this.assosciationService.getToy(id).subscribe((toy:any)=>{
+      title = toy.titre;
+      console.log(title);
+      if(confirm("Are you sure to delete: "+ title+"?")){
+        this.assosciationService.deleteToy(id).subscribe(res => window.location.reload());
+        console.log("Deleted, ID: "+id);
+      }
+    });
   }
 
 }

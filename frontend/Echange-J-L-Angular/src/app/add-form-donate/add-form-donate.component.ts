@@ -5,6 +5,8 @@ import { Livre } from '../models/Livre';
 import { Jouet } from '../models/Jouet';
 
 
+
+
 @Component({
   selector: 'app-add-form-donate',
   templateUrl: './add-form-donate.component.html',
@@ -87,6 +89,9 @@ export class AddFormDonateComponent implements OnInit {
     this.userService.addToy(this.jouet)
                     .subscribe(jouet=> {this.post="success";}, err=>{this.post="failed"});
   }
+
+
+
 
 
 }
