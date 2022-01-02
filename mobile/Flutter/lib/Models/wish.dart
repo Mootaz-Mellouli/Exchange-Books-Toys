@@ -1,4 +1,5 @@
-class  {Wish
+class Wish  {
+
   String? _id;
   String? _description;
   String? _categorieWish;

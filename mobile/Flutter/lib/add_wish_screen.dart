@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/whish_list_item_card.dart';
 import 'package:touchable_opacity/touchable_opacity.dart';
 
-import 'Models/backend_services.dart';
+import './backend_services.dart';
 
 class AddWhishScreen extends StatefulWidget {
   const AddWhishScreen({Key? key}) : super(key: key);
