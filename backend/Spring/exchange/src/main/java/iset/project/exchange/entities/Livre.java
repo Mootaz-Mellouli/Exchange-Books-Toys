@@ -16,6 +16,6 @@ public class Livre {
     private String maison_edition;
     private Etat etat_livre ;
     private CategorieLivre categorie_livre;
-    //private String uploaded_by;
+    private String uploaded_by;
     private Boolean donate ;
 }
