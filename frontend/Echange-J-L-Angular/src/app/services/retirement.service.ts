@@ -36,14 +36,17 @@ private expressapi='http://localhost:3000/api/souhait/'
 
   }
 
+  getWish(id:any){
+    return this.http.get(this.wishApi + id);
+  }
+
   deleteWish(id: number):Observable<{}>
   {
     return this.http.delete(`${this.wishApi}/${id}`);
   }
 
-  updateToy(wish:Wish,id:number)
-  {
-    return this.http.put(`${this.wishApi}/${id}`, wish)
+  updateWish(id:any, wish:Wish){
+    return this.http.put(this.wishApi + id, wish);
   }
 
 

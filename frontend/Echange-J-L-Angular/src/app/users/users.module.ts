@@ -16,6 +16,7 @@ import { RetirementComponent } from './retirement/retirement.component';
 import { WishFormComponent } from './wish-form/wish-form.component';
 import { WishCardComponent } from './wish-card/wish-card.component';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { WishFormUpdateComponent } from './wish-form-update/wish-form-update.component';
 @NgModule({
   declarations: [
     UsersComponent,
@@ -30,6 +31,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
     WishFormComponent,
     WishCardComponent,
     WishListComponent,
+    WishFormUpdateComponent,
   ],
   imports: [
     CommonModule,

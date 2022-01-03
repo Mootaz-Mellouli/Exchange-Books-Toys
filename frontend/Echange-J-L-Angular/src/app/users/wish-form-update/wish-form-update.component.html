@@ -1,0 +1,36 @@
+<div class="container-fluid px-1 py-5 mx-auto" *ngIf="stat;">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Updating: </h3>
+            <p class="blue-text">Fill In The Form Below With The Necessary Details</p>
+            <div class="alert alert-success" *ngIf="updateState=='success'" role="alert">
+                Toy succesfully updated!
+            </div>
+            <div class="alert alert-danger" *ngIf="updateState=='failed'" role="alert">
+                Update Failed!
+            </div>
+            <div class="card">
+                <!-- <h5 class="text-center mb-4">Powering world-class companies</h5> -->
+                <form class="form-card" (ngSubmit)="onSubmit($event)" #f="ngForm">
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantite<span class="text-danger"> *</span></label> <input type="text" ngModel="{{wish.quantite}}" id="quantite" name="quantite" placeholder="quantite"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Description<span class="text-danger"> *</span></label> <input type="text" ngModel="{{wish.description}}" id="description" name="description" placeholder=""> </div>
+                    </div>
+
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Categorie<span class="text-danger"> *</span></label>
+                            <select aria-label="Default select example" name="categorie_wish" ngModel="{{wish.categorie_wish}}">
+                                <option disabled>Select your Wish's Category</option>
+                                <option value="Toy">Toy</option>
+                                <option value="Book">Book</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Update</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
