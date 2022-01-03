@@ -9,7 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +18,14 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     FooterComponent,
     NotfoundComponent,
-    LoginComponent,
-    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
