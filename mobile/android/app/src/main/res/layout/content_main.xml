@@ -198,7 +198,10 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:text="Check List"
-                        android:contentDescription="@string/app_name" />
+                        android:contentDescription="@string/app_name"
+                        android:id="@+id/btnshow"
+                        android:onClick="ajouter"
+                        />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
