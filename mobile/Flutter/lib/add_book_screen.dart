@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'Models/livre.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() => runApp(AddBook());
 
@@ -70,6 +73,33 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
 }
 
 class AllFieldsForm extends StatelessWidget {
+
+  var livre = Livre.constructor(id:'', titre:'', auteur:'', maisonEdition:'', etatLivre:'', categorieLivre:'');
+  final _form = GlobalKey<FormState>();
+  void _saveForm()
+  {
+    _form.currentState!.save();
+    print(livre.titre);
+    print(livre.auteur);
+    print(livre.categorieLivre);
+    print(livre.maisonEdition);
+    print(livre.etatLivre);
+  }
+  void addBook(Livre livre)
+  {
+    var url = Uri.http('10.0.2.2:8080', '/livre/add') ;
+    http.post(url,body: json.encode({
+      'titre':livre.titre,
+      'auteur':livre.auteur,
+      'maison_edition':livre.maisonEdition,
+      'etat_livre':livre.etatLivre,
+      'categorie_livre':livre.categorieLivre
+
+    }),);
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -109,6 +139,7 @@ class AllFieldsForm extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Form(
+                      key: _form,
                       child: Column(
                         children: <Widget>[
                           TextFormField(
@@ -116,6 +147,16 @@ class AllFieldsForm extends StatelessWidget {
                               labelText: 'Book Title ',
                               prefixIcon: Icon(Icons.text_fields),
                             ),
+                            onSaved: (value)
+                            {
+                              livre = Livre.constructor(id:livre.id,
+                                  titre:value,
+                                  auteur:livre.auteur,
+                                  maisonEdition:livre.maisonEdition,
+                                  etatLivre:livre.etatLivre,
+                                  categorieLivre:livre.categorieLivre
+                              );
+                            },// onSaved()
                             keyboardType: TextInputType.multiline,
                           ),
                           TextFormField(
@@ -123,12 +164,32 @@ class AllFieldsForm extends StatelessWidget {
                               labelText: 'Book Author',
                               prefixIcon: Icon(Icons.text_fields),
                             ),
+                            onSaved: (value)
+                            {
+                              livre = Livre.constructor(id:livre.id,
+                                  titre:livre.titre,
+                                  auteur:value,
+                                  maisonEdition:livre.maisonEdition,
+                                  etatLivre:livre.etatLivre,
+                                  categorieLivre:livre.categorieLivre
+                              );
+                            },// onSaved()
                           ),
                           TextFormField(
                             decoration: const InputDecoration(
                               labelText: 'Book House Publishing',
                               prefixIcon: Icon(Icons.text_fields),
                             ),
+                            onSaved: (value)
+                            {
+                              livre = Livre.constructor(id:livre.id,
+                                  titre:livre.titre,
+                                  auteur:livre.auteur,
+                                  maisonEdition:value,
+                                  etatLivre:livre.etatLivre,
+                                  categorieLivre:livre.categorieLivre
+                              );
+                            },// onSaved()
                           ),
                           DropdownFieldBlocBuilder<String>(
                             selectFieldBloc: formBloc.categoryBook,
@@ -139,6 +200,16 @@ class AllFieldsForm extends StatelessWidget {
                             itemBuilder: (context, value) => FieldItem(
                               child: Text(value),
                             ),
+                            onChanged: (value)
+                            {
+                              livre = Livre.constructor(id:livre.id,
+                                  titre:livre.titre,
+                                  auteur:livre.auteur,
+                                  maisonEdition:livre.maisonEdition,
+                                  etatLivre:livre.etatLivre,
+                                  categorieLivre:value
+                              );
+                            },// onSaved()
                           ),
                           DropdownFieldBlocBuilder<String>(
                             selectFieldBloc: formBloc.shapeBook,
@@ -149,19 +220,22 @@ class AllFieldsForm extends StatelessWidget {
                             itemBuilder: (context, value) => FieldItem(
                               child: Text(value),
                             ),
-                          ),
-                          DropdownFieldBlocBuilder<String>(
-                            selectFieldBloc: formBloc.shapeBook,
-                            decoration: const InputDecoration(
-                              labelText: 'SHAPE OF THE BOOK',
-                              prefixIcon: Icon(Icons.sentiment_satisfied),
-                            ),
-                            itemBuilder: (context, value) => FieldItem(
-                              child: Text(value),
-                            ),
+                            onChanged: (value)
+                            {
+                              livre = Livre.constructor(id:livre.id,
+                                  titre:livre.titre,
+                                  auteur:livre.auteur,
+                                  maisonEdition:livre.maisonEdition,
+                                  etatLivre:value,
+                                  categorieLivre:livre.categorieLivre
+                              );
+                            },// onSaved()
                           ),
                           ElevatedButton(
-                            onPressed:() {},
+                            onPressed:() {
+                              _saveForm();
+                              addBook(livre);
+                            },
                             child: Text('Submit'),
                           ),
                           ElevatedButton(
@@ -224,7 +298,7 @@ class SuccessScreen extends StatelessWidget {
           children: <Widget>[
             Icon(Icons.tag_faces, size: 100),
             SizedBox(height: 10),
-            Text(
+            const Text(
               'Success',
               style: TextStyle(fontSize: 54, color: Colors.black),
               textAlign: TextAlign.center,
