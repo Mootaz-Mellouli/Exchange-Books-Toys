@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 {
     ArrayList<Livre> bookData;
     ImageView image;
+    clickListener listener;
+    Button btn;
 //    ArrayList<Jouet> toyData;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView title;
@@ -29,14 +32,24 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             image = itemView.findViewById(R.id.image);
             title = itemView.findViewById(R.id.title);
             auteur = itemView.findViewById(R.id.auteur);
+            btn = itemView.findViewById(R.id.detail);
             customAdapter = adapter;
         }
+    public void bind(String item, clickListener listener){
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.itemClickListener(v, item);
+            }
+        });
+    }
     }
 
-    public CustomAdapter(ArrayList<Livre> bookData)
+    public CustomAdapter(ArrayList<Livre> bookData, clickListener listen)
     {
         this.bookData = bookData;
 //        this.toyData = toyData;
+        this.listener = listen;
     }
 
 
@@ -48,8 +61,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, @SuppressLint("RecyclerView") int position)
     {
-        holder.title.setText(bookData.get(position).getTitre());
-        holder.auteur.setText(bookData.get(position).getAuteur());
+        holder.bind(bookData.get(position).getId(), listener);
 
     }
 

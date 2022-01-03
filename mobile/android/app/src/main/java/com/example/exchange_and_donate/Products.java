@@ -1,5 +1,6 @@
 package com.example.exchange_and_donate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +33,7 @@ public class Products extends AppCompatActivity {
     RequestQueue requestQueue;
     //    ArrayList<Integer> images;
     final String URI="http://10.0.2.2:8080/livre/";
-
+    public static final String Extra_Message_Key = "com.example.exchange_and_donate.extra.message";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,13 @@ public class Products extends AppCompatActivity {
 
 
         recycler_view = findViewById(R.id.recycler_view);
-        adapter = new CustomAdapter(livre);
+        adapter = new CustomAdapter(livre, new clickListener() {
+            @Override
+            public void itemClickListener(View v, String item) {
+                Intent i = new Intent(Products.this, Details.class);
+                i.putExtra(Extra_Message_Key, item);
+            }
+        });
         recycler_view.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recycler_view.setLayoutManager(layoutManager);
