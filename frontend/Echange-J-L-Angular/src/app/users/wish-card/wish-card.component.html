@@ -1,0 +1,23 @@
+<article class="card card-product-list">
+    <div class="row no-gutters">
+        <aside class="col-md-3">
+            <a href="#" class="img-wrap">
+                <img src="../../../assets/support.png" alt="image">
+            </a>
+        </aside>
+        <div class="info-main">
+            <h3 class="title"> {{wish.categorie_wish}} </h3>
+            <p>{{wish.quantite}}</p>
+        </div>
+    </div>
+    <div class="info-aside">
+        <div class="dropdown">
+            <a href="#" role="button" class="btn btn dropbtn">Operations</a>
+            <div class="dropdown-content">
+                <a (click)="deleteWish(wish.id);">Delete</a>
+                <a (click)="updateWish(wish.id);">Edit</a>
+            </div>
+        </div>
+    </div>
+
+</article>

@@ -30,7 +30,7 @@ private expressapi='http://localhost:3000/api/jouets/'
 
   getAllToys()
   {
-    return this.http.get<Jouet[]>(this.expressapi);
+    return this.http.get<Jouet[]>(this.getAllToy);
   }
 
   getAllBooks()
@@ -38,18 +38,27 @@ private expressapi='http://localhost:3000/api/jouets/'
     return this.http.get<Livre[]>(this.getAllBook);
   }
 
-  getToyByID(id:number)
+  getToyByID(id:String)
   {
-    return this.http.get<Jouet>(`${this.getAllToy}/${id}`);
+    return this.http.get<Jouet>(this.getAllToy + id);
+
+  }
+  getBookByID(id:String)
+  {
+    return this.http.get<Jouet>(this.getAllBook + id);
 
   }
 
-  deleteToy(id: number):Observable<{}>
+  deleteToy(id: String):Observable<{}>
   {
-    return this.http.delete(`${this.getAllToy}/${id}`);
+    return this.http.delete(this.getAllToy + id);
   }
 
-  updateToy(jouet:Jouet,id:number)
+  deleteBook(id: String):Observable<{}>
+  {
+    return this.http.delete(this.getAllBook + id);
+  }
+  updateToy(jouet:Jouet,id:String)
   {
     return this.http.put(`${this.getAllToy}/${id}`, jouet)
   }

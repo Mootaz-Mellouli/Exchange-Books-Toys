@@ -3,6 +3,7 @@ package iset.project.exchange.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -31,35 +32,50 @@ public class AuthService implements UserDetailsService {
 	public AuthService(UserAuthRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-	public UserAuth saveUser(String username, String password) {    
+	public UserAuth saveUser(String username, String password , String role) {
 		UserAuth appUser= new UserAuth();
+		System.out.println(role);
 	    if(userRepository.findByUsername(username).isPresent()==true)
 	        throw new RuntimeException("User already exists");
 	   /* if(!password.equals(confirmedPassword))
 	        throw new RuntimeException("Please confirm your password");*/
 	    appUser.setUsername(username);
 	     //appUser.setEnabled(true);
-	    Set<Role> roles = new HashSet<Role>();
-		roles.add(new Role(2,"USER"));
+		 Set<Role> roles = new HashSet<>();
+	    if(role.equals("User")) {
+			roles.add(new Role(2,"USER"));
+	    } else if(role.equals("Association")) {
+			roles.add(new Role(3,"ASSOCIATION"));
+	    } else if(role.equals("Maison_de_retrait")) {
+			roles.add(new Role(4,"M_RETRAIT"));
+	    }
+	    else if(role.equals("Admin")) {
+			roles.add(new Role(1,"ADMIN"));
+	    }
 		appUser.setRoles(roles);
 		appUser.setPassword(bCryptPasswordEncoder.encode(password));
-		userRepository.save(appUser);
-		return appUser;
+		return userRepository.save(appUser);
 	}
 	
 	public UserAuth changeRole(String id, String role) {    
 		UserAuth appUser= userRepository.findById(id).get();
-	    Set<Role> roles = new HashSet<Role>();
-	    if(role=="Utilisateur") {
+		Role r = new Role();
+		for(Role ro : appUser.getRoles()) {
+			r = new Role(ro.getId(), ro.getName());
+	    }
+		 Set<Role> roles = new HashSet<>();
+		 if(r!=null) {
+			 roles.add(r);
+		 }
+	    if(role.equals("User")) {
 			roles.add(new Role(2,"USER"));
-	    } else if(role=="Association") {
+	    } else if(role.equals("Association")) {
 			roles.add(new Role(3,"ASSOCIATION"));
-	    } else if(role=="Maison_de_retrait") {
+	    } else if(role.equals("Maison_de_retrait")) {
 			roles.add(new Role(4,"M_RETRAIT"));
 	    }
 		appUser.setRoles(roles);
-		userRepository.save(appUser);
-		return appUser;
+		return userRepository.save(appUser);
 	}
 	
 	@Override

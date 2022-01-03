@@ -1,0 +1,34 @@
+<!-- ========================= SECTION PAGETOP ========================= -->
+<section class="section-pagetop bg">
+    <div class="container">
+        <h2 class="title-page">Article we need !</h2>
+    </div>
+    <!-- container //  -->
+</section>
+
+
+<section class="section-content padding-y">
+    <div class="container">
+
+        <div class="row">
+            <main class="col-md-9">
+                <header class="border-bottom mb-4 pb-3">
+                    <div class="form-inline">
+                        <span class="mr-md-auto"><b>{{itemCount}}</b> Items found </span>
+                    </div>
+                </header>
+                <div *ngFor="let x of data | sortByType:inte: 'type'">
+                    <div>
+                        <app-wish-card [wish]="x">
+                        </app-wish-card>
+                    </div>
+                </div>
+
+            </main>
+            <!-- col.// -->
+
+        </div>
+
+    </div>
+    <!-- container .//  -->
+</section>

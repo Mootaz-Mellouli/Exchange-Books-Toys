@@ -110,7 +110,13 @@
             <aside class="col-sm-3 content">
                 <div class="info-aside">
                         <a href="#" role="button" class="btn btn-primary"> Receive </a>
-                </div> <!-- info-aside.// -->
+                </div>
+                <div class="info-aside">
+                  <a  role="button" class="btn btn-primary"  > Update </a>
+          </div> <!----routerLink="/users/update/{{ toy.id }}"--->
+          <div class="info-aside">
+            <a  role="button" class="btn btn-primary" (click)="deleteToy(toy.id);"> Delete </a>
+    </div> <!-- info-aside.// -->
             </aside> <!-- col.// -->
             <hr>
         </div>
@@ -122,8 +128,8 @@
         <div class="row no-gutters" *ngFor="let book of books">
           <div class="row no-gutters" *ngIf="book.donate">
           <aside class="col-md-3">
-              <a href="#" class="img-wrap">
-                  <img src="../../assets/books.jpg" alt="image">
+              <a  class="img-wrap">
+                  <img src="../../assets/books.jpg"  alt="image">
               </a>
           </aside> <!-- col.// -->
           <div class="col-md-6">
@@ -138,7 +144,11 @@
           <aside class="col-sm-3 content">
               <div class="info-aside">
                       <a href="#" role="button" class="btn btn-primary"> Receive </a>
-              </div> <!-- info-aside.// -->
+              </div>
+              <div class="info-aside">
+                <a  role="button" class="btn btn-primary" (click)="deleteBook(book.id);"> Delete </a>
+        </div>
+               <!-- info-aside.// -->
           </aside> <!-- col.// -->
           <hr>
         </div>

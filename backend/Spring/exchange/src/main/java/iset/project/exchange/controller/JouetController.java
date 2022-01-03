@@ -38,8 +38,8 @@ public class JouetController {
                 jouetService.deleteToy(id);
         }
         @PutMapping({"/{id}"})
-        public Jouet updateToy(@RequestBody Jouet jouet)
+        public Jouet updateToy(@PathVariable("id") String id, @RequestBody Jouet jouet)
         {
-                return jouetService.updateToy(jouet);
+                return jouetService.updateToy(id, jouet);
         }
         }

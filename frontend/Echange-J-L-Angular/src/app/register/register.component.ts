@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.register.value);
     
     if(this.register.value.password === this.register.value.cpassword){
-      this.service.Register(this.register.value.username, this.register.value.password).subscribe((res:any)=> {
+      this.service.Register(this.register.value.username, this.register.value.password, this.register.value.role).subscribe((res:any)=> {
         window.location.href ="/login";
       },err => this.registerStat = "failed");
     }

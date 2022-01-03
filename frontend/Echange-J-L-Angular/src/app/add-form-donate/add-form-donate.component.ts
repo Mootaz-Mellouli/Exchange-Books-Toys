@@ -5,6 +5,8 @@ import { Livre } from '../models/Livre';
 import { Jouet } from '../models/Jouet';
 
 
+
+
 @Component({
   selector: 'app-add-form-donate',
   templateUrl: './add-form-donate.component.html',
@@ -15,6 +17,7 @@ export class AddFormDonateComponent implements OnInit {
   @ViewChild('f', { static: false }) addForm!: NgForm;
   BookSelection = false ;
   ToySelection = true ;
+  submitted = false ;
 
 
   bookSelected(){
@@ -33,7 +36,7 @@ export class AddFormDonateComponent implements OnInit {
   constructor(private userService: UserService) { }
   stat = true;
   uploaded = "";
-  data = [];
+  data:any= {};
   post = "";
   ngOnInit (): void {
     if(localStorage.getItem("status")=="False"){
@@ -42,12 +45,12 @@ export class AddFormDonateComponent implements OnInit {
     }
     else {
       this.data = JSON.parse(localStorage.getItem("userData") || "");
-      this.data.map((item:any)=>{
-        this.uploaded = item.username;
-    });
+      console.log(this.data);
+      this.uploaded = this.data.username;
     }
   }
   onSubmit(){
+    
     this.livre.titre=this.addForm.value.Title ;
     this.livre.auteur=this.addForm.value.Author ;
     this.livre.maison_edition=this.addForm.value.PublishingHouse ;
@@ -63,17 +66,19 @@ export class AddFormDonateComponent implements OnInit {
     this.livre.donate=true;
     console.log(this.addForm);
     console.log(this.uploaded);
-    
+
     if(this.livre.titre!=null)
     {
       this.saveBook();
+      this.submitted=true;
 
     }
     else
     {
       this.saveToy();
-
+      this.submitted=true;
     }
+    this.addForm.reset();
   }
 
   saveBook(){
@@ -84,6 +89,9 @@ export class AddFormDonateComponent implements OnInit {
     this.userService.addToy(this.jouet)
                     .subscribe(jouet=> {this.post="success";}, err=>{this.post="failed"});
   }
+
+
+
 
 
 }

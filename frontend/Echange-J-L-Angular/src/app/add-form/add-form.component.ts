@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { Livre } from '../models/Livre';
 import { Jouet } from '../models/Jouet';
 
+
 @Component({
   selector: 'app-add-form',
   templateUrl: './add-form.component.html',
@@ -23,7 +24,7 @@ export class AddFormComponent implements OnInit {
 
   constructor(private userService: UserService) { }
   stat = true;
-  data = [];
+  data:any = {};
   uploaded = "";
   post = "";
   ngOnInit (): void {
@@ -33,9 +34,7 @@ export class AddFormComponent implements OnInit {
     }
     else {
       this.data = JSON.parse(localStorage.getItem("userData") || "");
-      this.data.map((item:any)=>{
-        this.uploaded = item.username;
-      });
+      this.uploaded = this.data.username;
     }
   }
 
@@ -46,11 +45,13 @@ export class AddFormComponent implements OnInit {
     this.livre.categorie_livre=this.addForm.value.CategoryBook ;
     this.livre.etat_livre=this.addForm.value.ShapeBook ;
     this.livre.uploaded_by=this.uploaded;
+    this.livre.donate=false;
     this.jouet.titre=this.addForm.value.Name;
     this.jouet.description=this.addForm.value.Description ;
     this.jouet.categorie_jouet=this.addForm.value.CategoryToy;
     this.jouet.etat_jouet=this.addForm.value.ShapeToy;
     this.jouet.uploaded_by=this.uploaded;
+    this.jouet.donate=false;
     console.log(this.addForm);
     if(this.livre.titre!=null)
     {
@@ -62,6 +63,7 @@ export class AddFormComponent implements OnInit {
     this.saveToy();
     this.submitted=true;
     }
+    this.addForm.reset();
   }
 
   bookSelected(){
@@ -81,6 +83,6 @@ export class AddFormComponent implements OnInit {
   saveToy(){
     this.userService.addToy(this.jouet)
                     .subscribe(jouet=> {this.post="success"}, err=>{this.post="failed"})};
-  
+
 
 }

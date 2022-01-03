@@ -44,8 +44,15 @@ public class JouetService {
         }
     }
 
-    public Jouet updateToy(Jouet jouet)
+    public Jouet updateToy(String id, Jouet jouet)
     {
-        return jouetRepository.save(jouet);
+    	Jouet j = jouetRepository.findToyById(id);
+    	j.setDescription(jouet.getTitre());
+    	j.setEtat_jouet(jouet.getEtat_jouet());
+    	j.setCategorie_jouet(jouet.getCategorie_jouet());
+    	j.setDonate(jouet.getDonate());
+    	j.setUploaded_by(jouet.getUploaded_by());
+    	
+        return jouetRepository.save(j);
     }
 }

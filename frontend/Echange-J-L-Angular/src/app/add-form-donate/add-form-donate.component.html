@@ -17,7 +17,7 @@
       </h1>
 
       <div class="puppy">
-        <img src="assets/books.jpg"/>
+        <img  src="assets/books.jpg"/>
       </div>
     </div>
   </ng-template>
@@ -25,10 +25,10 @@
 
   <div class="right-container">
     <div class="alert alert-success" *ngIf="post=='success'" role="alert">
-      Product Successfully Uploaded! 
+      Product Successfully Uploaded!
     </div>
     <div class="alert alert-danger d-flex justify-content-center" style="height: 3rem;" *ngIf="post=='failed'" role="alert">
-        Upload Failed! 
+        Upload Failed!
     </div>
     <form (ngSubmit)="onSubmit()" #f="ngForm">
     <header>
@@ -156,9 +156,10 @@
     </header>
     <footer>
       <div class="set">
-        <button id="back">Back</button>
-        <button id="next" type="submit">Next</button>
+        <button id="back" routerLink="/" >Back</button>
+        <button id="next" type="submit" [disabled]="!f.valid" >Next</button>
       </div>
+
 
     </footer>
   </form>
