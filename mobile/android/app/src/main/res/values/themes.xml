@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<<<<<<< HEAD
     <style name="Theme.Android" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+=======
+    <style name="Theme.Exchange_And_Donate" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+>>>>>>> 3b1581e532b78150a97fbe8c686354333baa681e
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,4 +17,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+<<<<<<< HEAD
+=======
+
+    <style name="Theme.Exchange_And_Donate.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Exchange_And_Donate.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Exchange_And_Donate.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+>>>>>>> 3b1581e532b78150a97fbe8c686354333baa681e
 </resources>
