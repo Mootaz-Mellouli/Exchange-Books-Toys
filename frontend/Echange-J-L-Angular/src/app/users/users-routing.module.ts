@@ -9,6 +9,7 @@ import { RetirementComponent } from './retirement/retirement.component';
 import { WishFormComponent } from './wish-form/wish-form.component';
 import { UsersComponent } from './users.component';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { WishFormUpdateComponent } from './wish-form-update/wish-form-update.component';
 
 const routes: Routes = [
   {path:'add',component:AddFormComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'retirement/wish-form',component:WishFormComponent},
   {path:'retirement/wish-list',component:WishListComponent},
   {path:'retirement/products',component:ProductsComponent},
+  {path:'retirement/wish-list/editwish',component:WishFormUpdateComponent},
   { path: '', component: UsersComponent }
 ];
 

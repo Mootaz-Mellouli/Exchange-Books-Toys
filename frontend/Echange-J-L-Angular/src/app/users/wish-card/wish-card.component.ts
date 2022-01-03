@@ -28,12 +28,24 @@ deleteWish(id: any){
     }
   };
 
+  // updateBook(id: any){
+  //   let navigationExtras: NavigationExtras = {
+  //     queryParams: {
+  //         "id"   : encodeURIComponent(id),
+  //         "type":"book"
+  //     }
+  // };
+  //   this.router.navigate(["/users/editToy"], navigationExtras);
+  // }
+
   updateWish(id: any){
     let navigationExtras: NavigationExtras = {
       queryParams: {
           "id"   : encodeURIComponent(id),
       }
   };
-    this.router.navigate([""], navigationExtras);
+    this.router.navigate(["users/retirement/wish-list/editwish"], navigationExtras);
   }
+
+
 }
