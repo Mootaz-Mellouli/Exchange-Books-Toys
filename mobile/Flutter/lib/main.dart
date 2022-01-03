@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter App',
       home: MyHomePage(),
       routes: {
-        '/add_book': (BuildContext context) => AddDataWidget(),
+        '/add_book': (BuildContext context) => AddBook(),
         '/add_toy': (BuildContext context) => AddToy(),
         '/home': (BuildContext context) => MyHomePage(),
         '/add_book_donate': (BuildContext context) => AddBookDonate(),
