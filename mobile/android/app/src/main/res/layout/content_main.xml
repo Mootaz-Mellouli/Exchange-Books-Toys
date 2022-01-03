@@ -82,7 +82,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Exchange Your Book"
+                                android:text="Donate Your Book"
                                 android:layout_gravity="bottom|center_horizontal"
                                 android:layout_marginTop="20dp"
                                 android:layout_marginBottom="20dp"
@@ -117,7 +117,7 @@
                          <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Exchange Your Book"
+                            android:text="Exchange Your Toy"
                             android:layout_gravity="bottom|center_horizontal"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="20dp"
@@ -129,7 +129,7 @@
                             android:layout_height="60dp"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:text="Add Book"
+                            android:text="Add Toy"
                             android:contentDescription="@string/app_name" />
                     </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -151,7 +151,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Exchange Your Book"
+                            android:text="Donate Your Toy"
                             android:layout_gravity="bottom|center_horizontal"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="20dp"
@@ -163,8 +163,42 @@
                             android:layout_height="60dp"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:text="Add Book"
+                            android:text="Add Toy"
                             android:contentDescription="@string/app_name" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardMaxElevation="12dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose Your Toy or Book"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        />
+                    <Button
+                        android:layout_width="180dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="Check List"
+                        android:contentDescription="@string/app_name" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
