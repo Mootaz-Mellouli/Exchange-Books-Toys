@@ -55,11 +55,12 @@
                     />
 
                     <Button
+                        android:id="@+id/btnAddBook"
+                        android:onClick="ajouterBook"
                         android:layout_width="180dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
-                        android:id="@+id/img"
                         android:text="Add Book"
                         android:contentDescription="@string/app_name" />
                 </LinearLayout>

@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/activity_add_book_form.xml" value="0.1" />
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/activity_add_toy_form.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/bookline.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/content_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/fragment_gallery.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/fragment_home.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/layout/product_list.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/MOOTAZ/Desktop/PI/Exchange-Books-Toys/mobile/Android/app/src/main/res/menu/main.xml" value="0.13020833333333334" />
       </map>
     </option>
   </component>
