@@ -1,5 +1,6 @@
 package iset.project.exchange.services;
 
+import iset.project.exchange.entities.Jouet;
 import iset.project.exchange.entities.Livre;
 
 import iset.project.exchange.repository.LivreRepository;
@@ -44,9 +45,16 @@ public class LivreService {
         }
     }
 
-    public Livre updateBook(Livre livre)
+    public Livre updateBook(String id, Livre livre)
     {
-
-        return livreRepository.save(livre);
+    	Livre j = livreRepository.findBookById(id);
+    	j.setTitre(j.getTitre());
+    	j.setAuteur(j.getAuteur());
+    	j.setMaison_edition(j.getMaison_edition());
+    	j.setEtat_livre(j.getEtat_livre());
+    	j.setCategorie_livre(j.getCategorie_livre());
+    	j.setUploaded_by(j.getUploaded_by());
+    	j.setDonate(false);
+        return livreRepository.save(j);
     }
 }
