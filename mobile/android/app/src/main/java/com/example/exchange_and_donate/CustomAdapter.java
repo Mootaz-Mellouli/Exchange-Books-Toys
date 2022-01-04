@@ -35,14 +35,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             btn = itemView.findViewById(R.id.detail);
             customAdapter = adapter;
         }
-    public void bind(String item, clickListener listener){
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.itemClickListener(v, item);
-            }
-        });
-    }
+        public void bind(String item, clickListener listener){
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.itemClickListener(v, item);
+                }
+            });
+        }
     }
 
     public CustomAdapter(ArrayList<Livre> bookData, clickListener listen)
@@ -61,6 +61,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, @SuppressLint("RecyclerView") int position)
     {
+        holder.title.setText(bookData.get(position).getTitre());
+        holder.auteur.setText(bookData.get(position).getAuteur());
         holder.bind(bookData.get(position).getId(), listener);
 
     }

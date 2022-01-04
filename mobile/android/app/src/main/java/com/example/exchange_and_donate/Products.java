@@ -41,14 +41,14 @@ public class Products extends AppCompatActivity {
         livre = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
         loadlist();
-
-
         recycler_view = findViewById(R.id.recycler_view);
         adapter = new CustomAdapter(livre, new clickListener() {
             @Override
             public void itemClickListener(View v, String item) {
-                Intent i = new Intent(Products.this, Details.class);
+//                Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), Details.class);
                 i.putExtra(Extra_Message_Key, item);
+                startActivity(i);
             }
         });
         recycler_view.setAdapter(adapter);
@@ -58,7 +58,6 @@ public class Products extends AppCompatActivity {
     }
 
     private void loadlist() {
-        livre = new ArrayList<>();
         JsonArrayRequest stringRequest = new JsonArrayRequest(Request.Method.GET, URI,
                 null, new Response.Listener<JSONArray>() {
                     @Override
