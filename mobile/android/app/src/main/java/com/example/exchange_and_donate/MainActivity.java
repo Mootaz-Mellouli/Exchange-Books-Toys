@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     Button viewListButton ;
+    Button addbookbuton ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewListButton=findViewById(R.id.btnshow);
+        addbookbuton=findViewById(R.id.btnAddBook);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -69,6 +71,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+    public void ajouterBook(View v)
+    {
+
+addbookbuton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent= new Intent(MainActivity.this,addBookForm.class);
+        startActivity(intent);
+    }
+});
+    }
 
 
 
