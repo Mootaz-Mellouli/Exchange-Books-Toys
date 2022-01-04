@@ -19,6 +19,7 @@
             android:name=".addBookForm"
             android:exported="false" />
         <activity android:name=".Products" />
+        <activity android:name=".Details" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

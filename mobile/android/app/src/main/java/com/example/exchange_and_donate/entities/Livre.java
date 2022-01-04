@@ -11,6 +11,9 @@ public class Livre {
     private String uploaded_by;
     private Boolean donate ;
 
+    public Livre() {
+    }
+
     public Livre(String id, String titre, String auteur, String maison_edition, String etat_livre, String categorie_livre, String uploaded_by, Boolean donate) {
         this.id = id;
         this.titre = titre;
