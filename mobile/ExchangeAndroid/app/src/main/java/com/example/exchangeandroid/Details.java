@@ -4,6 +4,7 @@ package com.example.exchangeandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,9 +49,19 @@ public class Details extends AppCompatActivity {
         etats = findViewById(R.id.etatInfo);
         categories = findViewById(R.id.categorieInfo);
         uploadeds = findViewById(R.id.uploadedInfo);
-
+        delete = findViewById(R.id.delete);
         Intent i = getIntent();
         String id = i.getStringExtra(Extra_Message_Key);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteBook(id);
+
+            }
+        });
+
+
         requestQueue = Volley.newRequestQueue(this);
         getBook(id);
 
@@ -130,4 +141,28 @@ public class Details extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
+        void deleteBook(String id){
+            StringRequest dr = new StringRequest(Request.Method.DELETE, URI+id,
+                    new Response.Listener<String>()
+                    {
+                        @Override
+                        public void onResponse(String response) {
+                            // response
+                            Toast.makeText(getApplicationContext(), "Book Successfully Delete!", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(Details.this, Products.class);
+                            startActivity(i);
+                        }
+                    },
+                    new Response.ErrorListener()
+                    {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // error.
+
+                        }
+                    }
+            );
+            requestQueue.add(dr);
+        }
 }
