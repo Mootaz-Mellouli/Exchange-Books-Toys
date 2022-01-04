@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exchange_And_Donate">
         <activity android:name=".Products" />
+        <activity android:name=".Details" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
