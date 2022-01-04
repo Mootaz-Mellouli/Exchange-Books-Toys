@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExchangeAndroid">
         <activity
+            android:name=".addToyForm"
+            android:exported="false" />
+        <activity
+            android:name=".ProductListe"
+            android:exported="false" />
+        <activity
             android:name=".addBookForm"
             android:exported="false" />
         <activity

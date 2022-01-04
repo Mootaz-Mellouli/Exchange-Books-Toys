@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">ExchangeAndroid</string>
-    <string-array name="category">
-        <item>DSI2</item>
-        <item>DSI3</item>
-        <item>RSI2</item>
-        <item>RSI3</item>
-        <item>SEM2</item>
-        <item>SEM3</item>
+    <string-array name="categoryBook">
+        <item>Academic</item>
+        <item>Novel</item>
+        <item>Scientific</item>
+        <item>Dictionary</item>
+        <item>Art</item>
+        <item>History</item>
+    </string-array>
+    <string-array name="categoryToy">
+        <item>Society</item>
+        <item>Educative</item>
+        <item>Awkening</item>
+        <item>Puzzle</item>
+        <item>Exterior</item>
+        <item>Imitation</item>
     </string-array>
 </resources>

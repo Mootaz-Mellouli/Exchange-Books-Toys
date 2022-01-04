@@ -8,15 +8,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class addBookForm extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class addToyForm extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spinner ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_book_form);
-        spinner=findViewById(R.id.categoryBook);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.categoryBook, android.R.layout.simple_spinner_item);
+        setContentView(R.layout.activity_add_toy_form);
+        spinner=findViewById(R.id.categoryToy);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.categoryToy, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
