@@ -1,6 +1,8 @@
 package com.example.exchangeandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +36,8 @@ public class Products extends AppCompatActivity {
     RequestQueue requestQueue;
     //    ArrayList<Integer> images;
     final String URI="http://10.0.2.2:8080/livre/";
+    public static final String Extra_Message_Key = "com.example.exchangeandroid.extra.message";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,14 @@ public class Products extends AppCompatActivity {
 
 
         recycler_view = findViewById(R.id.recycler_view);
-        adapter = new CustomAdapter(livre);
+        adapter = new CustomAdapter(livre, new clickListener() {
+            @Override
+            public void itemClickListener(View v, String item) {
+                Intent i = new Intent(getApplicationContext(), Details.class);
+                i.putExtra(Extra_Message_Key, item);
+                startActivity(i);
+            }
+        });
         recycler_view.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recycler_view.setLayoutManager(layoutManager);

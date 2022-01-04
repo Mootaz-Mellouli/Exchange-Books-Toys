@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         showlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(MainActivity.this,ProductListe.class);
+                Intent intent= new Intent(MainActivity.this,Products.class);
                 startActivity(intent);
             }
         });
