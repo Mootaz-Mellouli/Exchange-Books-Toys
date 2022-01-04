@@ -15,7 +15,7 @@ import java.util.List;
 public class LivreController {
 
     @Autowired
-    private final LivreService livreService ;
+    LivreService livreService ;
 
     @RequestMapping("/")
     public List<Livre> getAllBooks()
@@ -39,8 +39,9 @@ public class LivreController {
         livreService.deleteBook(id);
     }
     @PutMapping({"/{id}"})
-    public Livre updateBook(@RequestBody Livre livre)
+    public Livre updateBook(@PathVariable("id") String id, @RequestBody Livre livre)
     {
-        return livreService.updateBook(livre);
+    	System.out.println(id);
+        return livreService.updateBook(id, livre);
     }
 }

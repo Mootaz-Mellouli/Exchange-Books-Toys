@@ -31,6 +31,7 @@ import java.util.ArrayList;
 
 public class Details extends AppCompatActivity {
     final String URI="http://10.0.2.2:8080/livre/";
+    public static final String EDIT_ID = "com.example.exchangeandroid.extra.message";
     RequestQueue requestQueue;
     TextView titres;
     TextView auteurs;
@@ -50,6 +51,8 @@ public class Details extends AppCompatActivity {
         categories = findViewById(R.id.categorieInfo);
         uploadeds = findViewById(R.id.uploadedInfo);
         delete = findViewById(R.id.delete);
+        edit = findViewById(R.id.edit);
+
         Intent i = getIntent();
         String id = i.getStringExtra(Extra_Message_Key);
 
@@ -58,6 +61,14 @@ public class Details extends AppCompatActivity {
             public void onClick(View v) {
                 deleteBook(id);
 
+            }
+        });
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Details.this, EditForm.class);
+                i.putExtra(EDIT_ID, id);
+                startActivity(i);
             }
         });
 
